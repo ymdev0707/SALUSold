@@ -56,7 +56,7 @@
 
   <div class="container pt-5 border-primary profile-container">
     <div class="col-md-6" style="max-width: 100%;">
-      <h4 class="mb-3 border-bottom">体重報告</h4>
+      <h4 class="mb-3 border-bottom">運動報告</h4>
     </div>
       <div id="report-wrapper"></div>
       <div>
