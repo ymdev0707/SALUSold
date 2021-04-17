@@ -13,13 +13,14 @@
             // 追加ボタン押下時にレポートを追加する
             $('#add-wrapper').on('click', function() {
                 // idを動的にふる
-                var last_report_id = increment_target_id_by_class('report-wrapper', 'report-id', "report");
+                var last_report_id = increment_target_id_by_class('report-id', "report");
                 var target_id = $("#" + last_report_id);
 
                 // 最後に追加したレポートをを追加して初期化する
                 $(target_id).parent("#mealreport-wrapper").clone().insertAfter('#mealreport-wrapper');
-                var last_report_id = increment_target_id_by_class('mealreport-wrapper', 'report-id', "report");
+                var last_report_id = increment_target_id_by_class('report-id', "report");
                 init_report(last_report_id);
+                var last_report_id2 = increment_target_name_by_class("report");
             });
 
             $('#report-delete').on('click', function() {
@@ -27,7 +28,7 @@
             });
         }
 
-        function increment_target_id_by_class(target_id, increment_name, target_class_name) {
+        function increment_target_id_by_class(increment_name, target_class_name) {
             //複数のdiv要素に動的なidをつける
             var moji = increment_name
             var tmp = document.getElementsByClassName(target_class_name);
@@ -39,6 +40,49 @@
             }
 
             return report_id;
+        }
+
+        function increment_target_name_by_class(target_class_name) {
+            //複数のdiv要素に動的なidをつける
+            var tmp = document.getElementsByClassName(target_class_name);
+            var report_value = document.getElementsByClassName('report_value');
+            var report_id = '';
+            // 配列に変換
+            var elements = Array.from( tmp ) ;
+            // var arr_report_value = Array.from( report_value ) ;
+            $('.report').each(function(index, element){
+                var arr_report_value = Array.from( element ) ;
+                console.log(toString.call(element));
+                console.log(element);
+                arr_report_value.forEach(function(val){
+                    console.log(val);
+                });
+            })
+            // elements.forEach( function( value, index ) {
+            //     // console.log(toString.call(value));
+            //     var arr_report_value = Array.from( value ) ;
+            //     for (let item of value) {
+            //         console.log(item.id);
+            //     }
+            //     arr_report_value.forEach(function(item){
+            //         console.log(item);
+            //         var id =value.id;
+            //         var n = 9;
+            //         var number = id.toString().substr((id.length-n,n));
+            //         // console.log(number);
+            //         item.setAttribute("name", 'report[' + number + ']' + '[' + item.id +']');
+            //     });
+            //     // console.log(value);
+            //     // arr_report_value.forEach(function (item){
+            //     //     var id =value.id;
+            //     //     var n = 9;
+            //     //     var number = id.toString().substr((id.length-n,n));
+            //     //     // console.log(id);
+            //     //     // console.log(number);
+            //     //     item.setAttribute("name", 'report[' + number + ']' + '[' + item.id +']');
+            //     // });
+            // });
+            // return report_id;
         }
 
         function init_report(target_report_id) {
@@ -64,15 +108,15 @@
         <div class="col-md-6" style="max-width: 100%;">
             <h4 class="mb-3 border-bottom">食事報告</h4>
         </div>
-        <form action="/mypage/report/regist">
-            @foreach ($mealreport as $report)
+        <form action="/mypage/mealreport/regist">
+            @foreach ($mealreport as $key => $report)
                 <div id="mealreport-wrapper">
                     <div class="report" id="report-id0">
                         <div>
                             <div>
                                 <label for="">画像</label>
                             </div>
-                            <input type="file" accept='image/*' onchange="preview_image(this);">
+                            <input class="report_value"  name="" id="meal_image" type="file" accept='image/*' onchange="preview_image(this);">
                             <div>
                                 <img id="preview"
                                     src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
@@ -83,42 +127,41 @@
                             <div>
                                 <label for="">ユーザーコメント</label>
                             </div>
-                            <textarea name="" id="user-comment" cols="30" rows="10">{{$report->USER_REPORT}}</textarea>
+                            <textarea class="report_value"  name="" id="user_report" cols="30" rows="10">{{$report->USER_REPORT}}</textarea>
                         </div>
                         <div>
                             <div>
                                 <label for="">トレーナーコメント</label>
                             </div>
-                            <textarea name="" id="trainer-comment" cols="30" rows="10">{{$report->TRAINNER_COMMENT}}</textarea>
+                            <textarea class="report_value"  name="" id="trainner_report" cols="30" rows="10">{{$report->TRAINNER_COMMENT}}</textarea>
                         </div>
                         <div>
                             <label>消費カロリー</label>
                         </div>
                         <div>
-                            <input type="number" id="cal" value="{{$report->INGESTION_CALORIE}}">
+                            <input class="report_value"  name="" type="number" id="ingetion_calorie" value={{$report->INGESTION_CALORIE}}>
                             <label>kcal</label>
                         </div>
                         <div>
                             <label>摂取時刻</label>
                         </div>
                         <div>
-                            <input type="time" id="get-time" value="{{$report->INGESTION_TIME}}">
+                            <input class="report_value" name="" type="time" id="ingetion_time" value={{$report->INGESTION_TIME}}>
                         </div>
                         <div>
                             <button id="report-delete">削除</button>
                         </div>
                     </div>
                 </div>
-                <div>
-                    <input type="submit" value="登録">
-                </div>
-        </form>
-        <div>
-            <button id="add-wrapper">追加</button>
-        </div>
         @endforeach
-
-    </div>
+            <div>
+                <input type="submit" value="登録">
+            </div>
+            </form>
+            <div>
+                <button id="add-wrapper">追加</button>
+            </div>
+        </div>
     </div>
 
 @endsection

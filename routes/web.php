@@ -24,7 +24,9 @@ Route::post('/mypage/profile/update', 'Mypage\ProfileController@update');
 
 Route::post('/mypage/record', 'Mypage\RecordController@index');
 
-Route::post('/mypage/report', 'Mypage\ReportController@index');
+//食事報告
+// Route::post('/mypage/mealreport', 'Mypage\Report\MealReportController@index');
+// Route::post('/mypage/mealreport/regist', 'Mypage\Report\MealReportController@regist');
 
 // // ログインが必要名ページ
 Route::middleware('auth')->group(function(){
@@ -38,4 +40,8 @@ Route::middleware('auth')->group(function(){
 
     Route::get('/mypage/record', 'Mypage\RecordController@index');
     Route::get('/mypage/report', 'Mypage\ReportController@index');
+
+    // 食事報告
+    Route::get('/mypage/mealreport', 'Mypage\Report\MealReportController@index');
+    Route::get('/mypage/mealreport/regist', 'Mypage\Report\MealReportController@regist');
 });
