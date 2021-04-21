@@ -20,8 +20,8 @@
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">報告</a>
             <div class="dropdown-menu" aria-labelledby="dropdown03">
-              <a class="dropdown-item" href="/mypage/report?type=meal">食事報告</a>
-              <a class="dropdown-item" href="/mypage/report?type=exercise">運動報告</a>
+              <a class="dropdown-item" href="/mypage/mealreport">食事報告</a>
+              <a class="dropdown-item" href="/mypage/trainningreport">運動報告</a>
               <a class="dropdown-item" href="/mypage/report?type=bodyweight">体重報告</a>
             </div>
           </li>

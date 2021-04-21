@@ -14,12 +14,12 @@ class MealReportInformation extends Model
      * @var array
      */
     protected $fillable = [
-        'user_id',
-        'meal_report_information',
-        'target_date',
-        'created_at',
-        'updated_at',
-        'is_deleted',
+        'USER_ID',
+        'MEAL_REPORT_INFORMATION_ID',
+        'TARGET_DATE',
+        'CREATED_AT',
+        'UPDATED_AT',
+        'IS_DELETED',
     ];
 
         
@@ -58,5 +58,21 @@ class MealReportInformation extends Model
         $mealreport = DB::select($sql);
 
         return $mealreport;
+    }
+    
+    /**
+     * regist_mealreport
+     *
+     * @param  mixed $target_date
+     * @param  mixed $user_id
+     * @return void
+     */
+    public static function regist_mealreport($target_date, $user_id, $param = null){
+        $mealreport = new MealReportInformation();
+        $result = $mealreport->create([
+            'USER_ID' => $user_id,
+            'TARGET_DATE' => $target_date,
+        ]);
+        return $result;
     }
 }
