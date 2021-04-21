@@ -109,14 +109,15 @@
             <h4 class="mb-3 border-bottom">食事報告</h4>
         </div>
         <form action="/mypage/mealreport/regist">
+            <input type="date" name="target_date">
             @foreach ($mealreport as $key => $report)
                 <div id="mealreport-wrapper">
-                    <div class="report" id="report-id0">
+                    <div class="report">
                         <div>
                             <div>
                                 <label for="">画像</label>
                             </div>
-                            <input class="report_value"  name="" id="meal_image" type="file" accept='image/*' onchange="preview_image(this);">
+                            <input class="report_value"  name="report_value[0][meal_image]" id="meal_image" type="file" accept='image/*' onchange="preview_image(this);">
                             <div>
                                 <img id="preview"
                                     src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
@@ -127,32 +128,78 @@
                             <div>
                                 <label for="">ユーザーコメント</label>
                             </div>
-                            <textarea class="report_value"  name="" id="user_report" cols="30" rows="10">{{$report->USER_REPORT}}</textarea>
+                            <textarea class="report_value"  name="report_value[0][user_report]" id="user_report" cols="30" rows="10">{{$report->USER_REPORT}}</textarea>
                         </div>
                         <div>
                             <div>
                                 <label for="">トレーナーコメント</label>
                             </div>
-                            <textarea class="report_value"  name="" id="trainner_report" cols="30" rows="10">{{$report->TRAINNER_COMMENT}}</textarea>
+                            <textarea class="report_value"  name="report_value[0][trainner_comment]" id="trainner_comment" cols="30" rows="10">{{$report->TRAINNER_COMMENT}}</textarea>
                         </div>
                         <div>
                             <label>消費カロリー</label>
                         </div>
                         <div>
-                            <input class="report_value"  name="" type="number" id="ingetion_calorie" value={{$report->INGESTION_CALORIE}}>
+                            <input class="report_value"  name="report_value[0][ingestion_calorie]" type="number" id="ingestion_calorie" value={{$report->INGESTION_CALORIE}}>
                             <label>kcal</label>
                         </div>
                         <div>
                             <label>摂取時刻</label>
                         </div>
                         <div>
-                            <input class="report_value" name="" type="time" id="ingetion_time" value={{$report->INGESTION_TIME}}>
+                            <input class="report_value" name="report_value[0][ingestion_time]" type="time" id="ingestion_time" value={{$report->INGESTION_TIME}}>
                         </div>
                         <div>
                             <button id="report-delete">削除</button>
                         </div>
                     </div>
                 </div>
+
+                <div id="mealreport-wrapper">
+                    <div class="report">
+                        <div>
+                            <div>
+                                <label for="">画像</label>
+                            </div>
+                            <input class="report_value"  name="report_value[1][meal_image]" id="meal_image" type="file" accept='image/*' onchange="preview_image(this);">
+                            <div>
+                                <img id="preview"
+                                    src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                                    style="max-width:200px;">
+                            </div>
+                        </div>
+                        <div>
+                            <div>
+                                <label for="">ユーザーコメント</label>
+                            </div>
+                            <textarea class="report_value"  name="report_value[1][user_report]" id="user_report" cols="30" rows="10">{{$report->USER_REPORT}}</textarea>
+                        </div>
+                        <div>
+                            <div>
+                                <label for="">トレーナーコメント</label>
+                            </div>
+                            <textarea class="report_value"  name="report_value[1][trainner_comment]" id="trainner_comment" cols="30" rows="10">{{$report->TRAINNER_COMMENT}}</textarea>
+                        </div>
+                        <div>
+                            <label>消費カロリー</label>
+                        </div>
+                        <div>
+                            <input class="report_value"  name="report_value[1][ingestion_calorie]" type="number" id="ingestion_calorie" value={{$report->INGESTION_CALORIE}}>
+                            <label>kcal</label>
+                        </div>
+                        <div>
+                            <label>摂取時刻</label>
+                        </div>
+                        <div>
+                            <input class="report_value" name="report_value[1][ingestion_time]" type="time" id="ingestion_time" value={{$report->INGESTION_TIME}}>
+                        </div>
+                        <div>
+                            <button id="report-delete">削除</button>
+                        </div>
+                    </div>
+                </div>
+               
+                
         @endforeach
             <div>
                 <input type="submit" value="登録">

@@ -67,11 +67,12 @@ class MealReportInformation extends Model
      * @param  mixed $user_id
      * @return void
      */
-    public static function regist_mealreport($target_date, $user_id, $param){
+    public static function regist_mealreport($target_date, $user_id, $param = null){
         $mealreport = new MealReportInformation();
-        $mealreport->create([
+        $result = $mealreport->create([
             'USER_ID' => $user_id,
             'TARGET_DATE' => $target_date,
         ]);
+        return $result;
     }
 }
