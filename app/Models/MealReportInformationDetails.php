@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class MealReportInformationDetail extends Model
+class MealReportInformationDetails extends Model
 {
     /**
      * The attributes that are mass assignable.
@@ -26,16 +26,16 @@ class MealReportInformationDetail extends Model
     ];
     
     /**
-     * regist_mealreport_detail
+     * regist_mealreport_details
      *
      * @param  mixed $target_date
      * @param  mixed $user_id
      * @param  mixed $param
      * @return void
      */
-    public static function regist_mealreport_detail($param){
-        $mealreport = new MealReportInformationDetail();
-        $mealreport->create([
+    public static function regist_mealreport_details($param){
+        $mealreportdetails = new MealReportInformationDetails();
+        $result = $mealreportdetails->create([
             'MEAL_REPORT_INFORMATION_ID' => $param['meal_report_information_id'],
             'DISPLAY_NUMBER' => $param['display_number'],
             'USER_REPORT' => $param['user_report'],
@@ -44,5 +44,26 @@ class MealReportInformationDetail extends Model
             'MEAL_IMAGE' => $param['meal_image'],
             'INGESTION_TIME' => $param['ingestion_time'],
         ]);
+
+        return $result;
+    }
+
+    /**
+     * delete_mealreport_details
+     *
+     * @param  mixed $target_date
+     * @param  mixed $user_id
+     * @return void
+     */
+    public static function delete_mealreport_details($meal_report_information_detail_id){
+        $mealreportdetails = new MealReportInformationDetails();
+        $result = $mealreportdetails
+            ->where([
+                'meal_report_information_detail_id' => $meal_report_information_detail_id,
+            ])
+            ->update([
+                'IS_DELETED' => 1,
+            ]);
+        return $result;
     }
 }
