@@ -26,7 +26,9 @@ Route::post('/mypage/record', 'Mypage\RecordController@index');
 
 //食事報告
 // Route::post('/mypage/mealreport', 'Mypage\Report\MealReportController@index');
-// Route::post('/mypage/mealreport/regist', 'Mypage\Report\MealReportController@regist');
+Route::post('/mypage/mealreport/regist', 'Mypage\Report\MealReportController@regist');
+Route::post('/mypage/mealreport/delete', 'Mypage\Report\MealReportController@delete');
+Route::post('/mypage/mealreport/update', 'Mypage\Report\MealReportController@update');
 
 // // ログインが必要名ページ
 Route::middleware('auth')->group(function(){

@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Functions\Common;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Arr;
 
 class MealReportInformation extends Model
 {
@@ -23,6 +24,22 @@ class MealReportInformation extends Model
     ];
 
         
+    /**
+     * judge_regist_process
+     *
+     * @param  mixed $target_date
+     * @param  mixed $user_id
+     * @return void
+     */
+    public static function judge_regist_process($target_date, $user_id){
+        $result = current(self::get_mealreprot($target_date, $user_id));
+        if(empty($result)){
+            return false;
+        }else{
+            return $result->MEAL_REPORT_INFORMATION_ID;
+        }
+    }
+
     /**
      * get_mealreprot
      *
@@ -46,7 +63,7 @@ class MealReportInformation extends Model
                     , mrid.UPDATED_AT 
                 FROM
                     MEAL_REPORT_INFORMATION AS mri 
-                    LEFT JOIN MEAL_REPORT_INFORMATION_DETAIL AS mrid 
+                    LEFT JOIN MEAL_REPORT_INFORMATION_DETAILS AS mrid 
                         ON mri.MEAL_REPORT_INFORMATION_ID = mrid.MEAL_REPORT_INFORMATION_ID 
                 WHERE
                     mri.USER_ID = {$user_id} 
@@ -54,9 +71,7 @@ class MealReportInformation extends Model
                     AND mri.IS_DELETED = 0 
                     AND mrid.IS_DELETED = 0
         ";
-
         $mealreport = DB::select($sql);
-
         return $mealreport;
     }
     
