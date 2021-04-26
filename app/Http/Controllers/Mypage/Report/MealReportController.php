@@ -80,13 +80,35 @@ class MealReportController extends Controller
             );
             $meal_report_information = MealReportInformationDetails::regist_mealreport_details($param);
             DB::commit();
-            return redirect('mypage/mealreport');
+            $target_date = new DateTime($input['form_target_date']);
+            $target_date = $target_date->format('Ymd');
+            return redirect('mypage/mealreport/?target_date=' . $target_date);
         } catch (\Exception $e) {
             Common::debug($e);
             DB::rollback();
         }
     }
     
+    /**
+     * update
+     *
+     * @param  mixed $request
+     * @return void
+     */
+    public function update(Request $request){
+        DB::beginTransaction();
+        $input = $request->input();
+        try {
+            $result = MealReportInformationDetails::update_mealreport_details($input);
+            DB::commit();
+            $target_date = new DateTime($input['form_target_date']);
+            $target_date = $target_date->format('Ymd');
+            return redirect('mypage/mealreport/?target_date=' . $target_date);
+        } catch (\Exception $e) {
+            Common::debug($e);
+            DB::rollback();
+        }
+    }
     /**
      * delete
      *
