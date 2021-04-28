@@ -88,11 +88,10 @@
                                 <div>
                                     <label for="">トレーナーコメント</label>
                                 </div>
-                                <textarea class="report_value" name="trainner_comment" id="trainner_comment" cols="30"
-                                    rows="10">{{ $report->TRAINNER_COMMENT }}</textarea>
+                                <textarea class="report_value" name="trainner_comment" id="trainner_comment" cols="30" rows="10">{{ $report->TRAINNER_COMMENT }}</textarea>
                             </div>
                             <div>
-                                <label>消費カロリー</label>
+                                <label>摂取カロリー</label>
                             </div>
                             <div>
                                 <input class="report_value" name="ingestion_calorie" type="number" id="ingestion_calorie"
@@ -110,7 +109,6 @@
                             <input type="hidden" name="meal_report_information_detail_id" id="meal_report_information_detail_id"
                                 value={{ $report->MEAL_REPORT_INFORMATION_DETAIL_ID }}>
                             <div>
-                                <input type="submit" value="登録" formaction="/mypage/mealreport/regist" formmethod="POST">
                                 <input type="submit" value="削除" formaction="/mypage/mealreport/delete" formmethod="POST">
                                 <input type="submit" value="更新" formaction="/mypage/mealreport/update" formmethod="POST">
                             </div>
@@ -151,11 +149,10 @@
                         <div>
                             <label for="">トレーナーコメント</label>
                         </div>
-                        <textarea class="report_value" name="trainner_comment" id="trainner_comment" cols="30"
-                            rows="10"></textarea>
+                        <textarea class="report_value" name="trainner_comment" id="trainner_comment" cols="30" rows="10"></textarea>
                     </div>
                     <div>
-                        <label>消費カロリー</label>
+                        <label>摂取カロリー</label>
                     </div>
                     <div>
                         <input class="report_value" name="ingestion_calorie" type="number" id="ingestion_calorie">
@@ -172,7 +169,6 @@
                     <div>
                         <input type="submit" value="登録" formaction="/mypage/mealreport/regist" formmethod="POST">
                         <input type="submit" value="削除" formaction="/mypage/mealreport/delete" formmethod="POST">
-                        <input type="submit" value="更新" formaction="/mypage/mealreport/update" formmethod="POST">
                     </div>
                 </div>
             </div>
