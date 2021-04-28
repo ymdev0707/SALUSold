@@ -14,7 +14,7 @@ use DateTime;
 
 use function Psy\debug;
 
-class MealReportController extends Controller
+class TrainningReportController extends Controller
 {
     //    
     /**
@@ -38,7 +38,7 @@ class MealReportController extends Controller
         $disp_target_date = new DateTime($target_date);
         $disp_target_date = $disp_target_date->format('Y-m-d');
 
-        return view('mypage/mealreport')->with([
+        return view('mypage/trainningreport')->with([
             "mealreport" => $mealreport,
             "target_date" => $disp_target_date,
         ]);

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Arr;
 
 class MealReportInformationDetails extends Model
 {
@@ -48,6 +49,28 @@ class MealReportInformationDetails extends Model
         return $result;
     }
 
+    /**
+     * delete_mealreport_details
+     *
+     * @param  mixed $target_date
+     * @param  mixed $user_id
+     * @return void
+     */
+    public static function update_mealreport_details($param){
+        $mealreportdetails = new MealReportInformationDetails();
+        $result = $mealreportdetails
+            ->where([
+                'meal_report_information_detail_id' => Arr::get($param,'meal_report_information_detail_id'),
+            ])
+            ->update([
+                'USER_REPORT' => $param['user_report'],
+                'TRAINNER_COMMENT' => $param['trainner_comment'],
+                'INGESTION_CALORIE' => $param['ingestion_calorie'],
+                'MEAL_IMAGE' => $param['meal_image'],
+                'INGESTION_TIME' => $param['ingestion_time'],
+            ]);
+        return $result;
+    }
     /**
      * delete_mealreport_details
      *

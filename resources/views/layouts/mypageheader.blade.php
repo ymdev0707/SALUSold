@@ -22,7 +22,7 @@
             <div class="dropdown-menu" aria-labelledby="dropdown03">
               <a class="dropdown-item" href="/mypage/mealreport">食事報告</a>
               <a class="dropdown-item" href="/mypage/trainningreport">運動報告</a>
-              <a class="dropdown-item" href="/mypage/report?type=bodyweight">体重報告</a>
+              <a class="dropdown-item" href="/mypage/physicalinformationreport">体重報告</a>
             </div>
           </li>
           <li class="nav-item">
