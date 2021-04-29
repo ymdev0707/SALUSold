@@ -1,20 +1,19 @@
 <?php
 
-namespace App\Http\Controllers\Mypage\Report;
+namespace App\Http\Controllers\Ms;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\MsController;
 use Illuminate\Http\Request;
 use Auth;
 use App\Models\MealReportInformation;
 use App\Models\MealReportInformationDetails;
 use App\Functions\Common;
+use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Arr;
 use DateTime;
 
-use function Psy\debug;
-
-class MealReportController extends Controller
+class UserInformationController extends MsController
 {
     //    
     /**
@@ -23,27 +22,25 @@ class MealReportController extends Controller
      * @return void
      */
     public function index(Request $request){
+        return view('ms/userinformation');
+    }
+    
+    /**
+     * search
+     *
+     * @param  mixed $request
+     * @return void
+     */
+    public function search(Request $request){
         $input = $request->input();
-        $input_date = Arr::get($input,'target_date', null);
-        $target_date = new DateTime($input_date);
-        $target_date = $target_date->format('Y/m/d');
-
-        if(empty($target_date)){
-            $target_date = new DateTime();
-            $target_date = $target_date->format('Y/m/d');
-        }
-
-        $mealreport = MealReportInformation::get_mealreprot($target_date, Auth::id());
-
-        $disp_target_date = new DateTime($target_date);
-        $disp_target_date = $disp_target_date->format('Y-m-d');
-
-        return view('mypage/mealreport')->with([
-            "mealreport" => $mealreport,
-            "target_date" => $disp_target_date,
+        $user_information = User::get_users($input);
+        return view('ms/userinformation')->with([
+            'user_info' => $user_information
         ]);
     }
         
+
+
     /**
      * regist
      *
