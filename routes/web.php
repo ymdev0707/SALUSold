@@ -35,6 +35,9 @@ Route::post('/mypage/physicalinformationreport', 'Mypage\Report\PhysicalInformat
 Route::post('/mypage/physicalinformationreport/regist', 'Mypage\Report\PhysicalInformationReportController@regist');
 Route::post('/mypage/physicalinformationreport/update', 'Mypage\Report\PhysicalInformationReportController@update');
 
+// ユーザ管理
+Route::post('/ms/userinformation/search', 'Ms\UserInformationController@search');
+
 // // ログインが必要名ページ
 Route::middleware('auth')->group(function(){
 
@@ -59,4 +62,9 @@ Route::middleware('auth')->group(function(){
     Route::get('/mypage/physicalinformationreport', 'Mypage\Report\PhysicalInformationReportController@index');
     Route::get('/mypage/physicalinformationreport/regist', 'Mypage\Report\PhysicalInformationReportController@regist');
     Route::get('/mypage/physicalinformationreport/update', 'Mypage\Report\PhysicalInformationReportController@update');
+
+    // 管理画面
+    // ユーザ管理
+    Route::get('/ms/userinformation', 'Ms\UserInformationController@index');
+    Route::get('/ms/userinformation/search', 'Ms\UserInformationController@search');
 });
