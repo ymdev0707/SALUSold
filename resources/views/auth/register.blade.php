@@ -56,9 +56,9 @@
                             <label for="sex" class="col-md-4 col-form-label text-md-right">性別</label>
                         
                             <div class="col-md-6" style="padding-top: 8px">
-                                <input id="sex-m" type="radio" name="sex" value="0">
+                                <input id="sex-m" type="radio" name="sex" value="100">
                                 <label for="sex-m">男性</label>
-                                <input id="sex-f" type="radio" name="sex" value="1">
+                                <input id="sex-f" type="radio" name="sex" value="101">
                                 <label for="sex-f">女性</label>
                         
                                 @if ($errors->has('sex'))

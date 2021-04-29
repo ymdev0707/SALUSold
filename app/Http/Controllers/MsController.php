@@ -18,16 +18,16 @@ class MsController extends BaseController
 
     public function __construct()
     {
-        // $this->middleware(function ($request, $next) {
+        $this->middleware(function ($request, $next) {
 
-        //     // ココに書く
-        //     $this->id = Auth::id();
-        //     $result = User::is_admin($this->id);
-        //     if($result == false){
-        //         return redirect('/login');
-        //     }
+            // ココに書く
+            $this->id = Auth::id();
+            $result = User::is_admin($this->id);
+            if($result == false){
+                return redirect('/login');
+            }
 
-        //     return $next($request);
-        // });
+            return $next($request);
+        });
     }
 }

@@ -21,15 +21,15 @@
             <input type="text" class="form-control col-md-5" placeholder="" name="user_id">
         </div>
         <div class="form-group">
-            <label>姓名/セイメイ</label>
+            <label>姓名 / セイメイ</label>
             <input type="text" class="form-control col-md-5" placeholder="" name="name">
         </div>
         <div class="form-group">
             <label>性別</label>
             <select class="form-control col-md-5" name="sex">
                 <option value="">---</option>
-                <option value="1">男</option>
-                <option value="0">女</option>
+                <option value="100">男</option>
+                <option value="101">女</option>
             </select>
         </div>
         <div class="form-group">
@@ -43,6 +43,11 @@
                 <option value="1">男</option>
                 <option value="0">女</option>
             </select>
+        </div>
+        <div class="form-group">
+            <label>在籍区分</label>
+            <input type="checkbox" name="enrollment_type[]" value="200" >一般
+            <input type="checkbox" name="enrollment_type[]" value="201">管理者
         </div>
 
         <input type="submit" class="btn btn-primary col-md-5" value="検索">
@@ -58,6 +63,7 @@
                 <th>姓名/セイメイ</th>
                 <th>年齢</th>
                 <th>性別</th>
+                <th>在籍区分</th>
                 <th>担当者</th>
                 <th>在籍店舗</th>
                 <th>詳細</th>
@@ -69,6 +75,7 @@
                         <td>{{ $user->NAME }}</td>
                         <td>{{ $user->BIRTH }}</td>
                         <td>{{ $user->SEX }}</td>
+                        <td>{{ $user->IS_ADMIN }}</td>
                         <td>{{ $user->STAFF }}</td>
                         <td>{{ $user->STORE_NAME }}</td>
                         <td>
