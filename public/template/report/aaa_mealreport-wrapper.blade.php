@@ -1,6 +1,15 @@
 <div class="report" id="report-id0">
   <div>
     <div>
+      <label for="">画像</label>
+    </div>
+    <input type="file" accept='image/*' onchange="preview_image(this);">
+    <div>
+      <img id="preview" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="max-width:200px;">
+    </div>
+  </div>
+  <div>
+    <div>
       <label for="">ユーザーコメント</label>
     </div>
     <textarea name="" id="user-comment" cols="30" rows="10"></textarea>

@@ -14,7 +14,7 @@
 @extends('layouts.mypageheader')
     <div class="container pt-5 border-primary profile-container">
       <div class="col-md-6" style="max-width: 100%;">
-        <h4 class="mb-3 border-bottom">プロフィール確認・編集</h4>
+        <h4 class="mb-3 border-bottom">プロフィール確認・編集!</h4>
         <form action="/mypage/profile/update" method="POST" class="needs-validation profile-form" style="padding-top: 10%;" novalidate="">
           {{ csrf_field() }}
           <div class="row">

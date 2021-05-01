@@ -24,7 +24,19 @@ Route::post('/mypage/profile/update', 'Mypage\ProfileController@update');
 
 Route::post('/mypage/record', 'Mypage\RecordController@index');
 
-Route::post('/mypage/report', 'Mypage\ReportController@index');
+//食事報告
+// Route::post('/mypage/mealreport', 'Mypage\Report\MealReportController@index');
+Route::post('/mypage/mealreport/regist', 'Mypage\Report\MealReportController@regist');
+Route::post('/mypage/mealreport/delete', 'Mypage\Report\MealReportController@delete');
+Route::post('/mypage/mealreport/update', 'Mypage\Report\MealReportController@update');
+
+// 身体情報報告
+Route::post('/mypage/physicalinformationreport', 'Mypage\Report\PhysicalInformationReportController@index');
+Route::post('/mypage/physicalinformationreport/regist', 'Mypage\Report\PhysicalInformationReportController@regist');
+Route::post('/mypage/physicalinformationreport/update', 'Mypage\Report\PhysicalInformationReportController@update');
+
+// ユーザ管理
+Route::post('/ms/userinformation/search', 'Ms\UserInformationController@search');
 
 // // ログインが必要名ページ
 Route::middleware('auth')->group(function(){
@@ -38,4 +50,21 @@ Route::middleware('auth')->group(function(){
 
     Route::get('/mypage/record', 'Mypage\RecordController@index');
     Route::get('/mypage/report', 'Mypage\ReportController@index');
+
+    // 食事報告
+    Route::get('/mypage/mealreport', 'Mypage\Report\MealReportController@index');
+    Route::get('/mypage/mealreport/regist', 'Mypage\Report\MealReportController@regist');
+
+    // トレーニング報告
+    Route::get('/mypage/trainningreport', 'Mypage\Report\TrainningReportController@index');
+    
+    // 身体情報報告
+    Route::get('/mypage/physicalinformationreport', 'Mypage\Report\PhysicalInformationReportController@index');
+    Route::get('/mypage/physicalinformationreport/regist', 'Mypage\Report\PhysicalInformationReportController@regist');
+    Route::get('/mypage/physicalinformationreport/update', 'Mypage\Report\PhysicalInformationReportController@update');
+
+    // 管理画面
+    // ユーザ管理
+    Route::get('/ms/userinformation', 'Ms\UserInformationController@index');
+    Route::get('/ms/userinformation/search', 'Ms\UserInformationController@search');
 });
