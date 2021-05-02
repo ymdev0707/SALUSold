@@ -7,9 +7,6 @@
     {{-- この場所に画面毎(ヘッダ位置)のjsを記述する --}}
     <script type="text/javascript">
         window.onload = function() {
-            // レポートのテンプレートを読み込む
-            // $("#physicalinformationreport-wrapper").load("/template/report/physicalinformationreport-wrapper.blade.php");
-
             // 追加ボタン押下時にレポートを追加する
             $('#add-wrapper').on('click', function() {
                 // template要素を取得
@@ -39,14 +36,6 @@
                 var ymd = year += month += day;
                 location.href = '/mypage/physicalinformationreport/?target_date=' + ymd;
             });
-        }
-
-        function preview_image(obj) {
-            var fileReader = new FileReader();
-            fileReader.onload = (function() {
-                document.getElementById('preview').src = fileReader.result;
-            });
-            fileReader.readAsDataURL(obj.files[0]);
         }
 
     </script>

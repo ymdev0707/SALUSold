@@ -91,24 +91,4 @@ class PhysicalInformationReportController extends Controller
             DB::rollback();
         }
     }
-    /**
-     * delete
-     *
-     * @param  mixed $request
-     * @return void
-     */
-    public function delete(Request $request){
-        DB::beginTransaction();
-        $input = $request->input();
-        try {
-            $result = MealReportInformationDetails::delete_mealreport_details(Arr::get($input,'meal_report_information_detail_id'));
-            DB::commit();
-            $target_date = new DateTime($input['form_target_date']);
-            $target_date = $target_date->format('Ymd');
-            return redirect('mypage/mealreport/?target_date=' . $target_date);
-        } catch (\Exception $e) {
-            Common::debug($e);
-            DB::rollback();
-        }
-    }
 }

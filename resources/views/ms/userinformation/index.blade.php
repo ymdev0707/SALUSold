@@ -50,7 +50,8 @@
             <input type="checkbox" name="enrollment_type[]" value="201">管理者
         </div>
 
-        <input type="submit" class="btn btn-primary col-md-5" value="検索">
+        <input type="submit" class="btn btn-primary" value="検索">
+        <a href="/ms/userinformation/add" class="btn btn-primary" role="button">新規登録</a>
     </form>
     @if (session('flash_message'))
         <div class="alert alert-primary" role="alert" style="margin-top:50px;">{{ session('flash_message') }}</div>
@@ -79,7 +80,7 @@
                         <td>{{ $user->STAFF }}</td>
                         <td>{{ $user->STORE_NAME }}</td>
                         <td>
-                            <a href="/userinformation/detail/{{$user->USER_ID}}" title="詳細">詳細</a>
+                            <a href="/ms/userinformation/detail/?user_id={{$user->USER_ID}}" title="詳細">詳細</a>
                         </td>
                     </tr>
                 @endforeach    

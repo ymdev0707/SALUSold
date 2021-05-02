@@ -57,7 +57,6 @@ class RegisterController extends Controller
             'sex' => ['required', 'int'],
             'birth' => ['required', 'date'],
         ]);
-// var_dump($result->errors());
         return $result;
     }
 
@@ -69,8 +68,6 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        // var_dump($data);
-        // exit;
         return User::create([
             'last_name' => $data['last_name'],
             'first_name' => $data['first_name'],

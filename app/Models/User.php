@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Hash;
 
 class User extends Authenticatable
 {
@@ -172,5 +173,27 @@ class User extends Authenticatable
         ";
         $user_info = DB::select($sql);
         return $user_info;
+    }
+    
+    /**
+     * create_user
+     *
+     * @param  mixed $data
+     * @return void
+     */
+    public static function create_user($data){
+        return User::create([
+            'last_name' => $data['last_name'],
+            'first_name' => $data['first_name'],
+            'last_name_kana' => $data['last_name_kana'],
+            'first_name_kana' => $data['first_name_kana'],
+            'email' => $data['email'],
+            'password' => Hash::make($data['password']),
+            'sex' => $data['sex'],
+            'birth' => $data['birth'],
+            'account_suspension_flg' => 0,
+            'del_flg' => 0,
+            'user_type' => 0,
+        ]);
     }
 }
