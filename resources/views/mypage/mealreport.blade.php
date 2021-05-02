@@ -1,5 +1,3 @@
-@extends('layouts.template')
-
 @section('css')
     {{-- この場所に画面毎のcssを記述する --}}
 @endsection
