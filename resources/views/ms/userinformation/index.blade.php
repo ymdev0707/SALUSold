@@ -73,7 +73,7 @@
                 @foreach ($user_info as $user)
                     <tr>
                         <td>{{ $user->USER_ID }}</td>
-                        <td>{{ $user->NAME }}</td>
+                        <td>{{ $user->CONCATNAME }}</td>
                         <td>{{ $user->BIRTH }}</td>
                         <td>{{ $user->SEX }}</td>
                         <td>{{ $user->IS_ADMIN }}</td>

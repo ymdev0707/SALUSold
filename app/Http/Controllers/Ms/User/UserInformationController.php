@@ -71,6 +71,7 @@ class UserInformationController extends MsController
     public function detail(Request $request){
         $input = $request->input();
         $target_date = self::get_target_date($input);
+        $user_information = current(User::get_users($input));
         $physicalinformation = self::init_physicalinformation($input);
         $tmp_target_date = new DateTime($target_date);
         $param_target_date = $tmp_target_date->format('Ymd');
@@ -79,6 +80,7 @@ class UserInformationController extends MsController
             'target_date' => $target_date,
             'param_target_date' => $param_target_date,
             'user_id' => $request->user_id,
+            'user_information' => $user_information,
         ]);
     }
 

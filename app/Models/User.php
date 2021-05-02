@@ -124,6 +124,8 @@ class User extends Authenticatable
             SELECT 
                 USER_ID
                 , NAME
+                , NAMEKANA
+                , concat(NAME, ' / ', NAMEKANA) AS CONCATNAME
                 , SEX
                 , SEX_VALUE
                 , BIRTH
@@ -142,7 +144,8 @@ class User extends Authenticatable
                 (
                 SELECT
                     us.id AS USER_ID,
-                    concat(last_name, ' ', first_name, ' / ', last_name_kana, ' ', first_name_kana) AS NAME,
+                    concat(last_name, ' ', first_name) AS NAME,
+                    concat(last_name_kana, ' ', first_name_kana) AS NAMEKANA, 
                     ( 
                         SELECT
                             SELECT_ITEM_NAME 

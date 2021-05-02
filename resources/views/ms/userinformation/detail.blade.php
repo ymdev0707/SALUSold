@@ -18,7 +18,7 @@
             width: calc(100%/3);
             height: 50px;
             border-bottom: 3px solid #5ab4bd;
-            background-color: #d9d9d9;
+            background-color: #565656;
             line-height: 50px;
             font-size: 16px;
             text-align: center;
@@ -49,6 +49,7 @@
 
         .link {
             display: block;
+            color: white;
         }
 
 
@@ -63,6 +64,29 @@
         .tabs input:checked+.tab_item {
             background-color: #5ab4bd;
             color: #fff;
+        }
+
+        table,
+        th,
+        td {
+            border-collapse: collapse;
+            border: 1px solid #ccc;
+            line-height: 1.5;
+        }
+
+        table.type06 th {
+            width: 150px;
+            padding: 10px;
+            font-weight: bold;
+            vertical-align: top;
+            background: #5ab4bd;
+            color: #ffffff;
+        }
+
+        table.type06 td {
+            width: 350px;
+            padding: 10px;
+            vertical-align: top;
         }
 
     </style>
@@ -99,7 +123,8 @@
                 var ymd = year += month += day;
                 var report_type = $('#report_type').val();
                 var user_id = $('#user_id').val();
-                location.href = '/ms/userinformation/detail/' + report_type +'/?target_date=' + ymd + '&user_id=' + user_id;
+                location.href = '/ms/userinformation/detail/' + report_type + '/?target_date=' + ymd +
+                    '&user_id=' + user_id;
             });
         }
 
@@ -108,9 +133,13 @@
 
 @section('content')
     @extends('layouts.msheader')
+
 @section('content')
+    @include('ms.userinformation.userinformation')
+    @include('ms.userinformation.dashboard')
     <div class="tabs">
-        <input id="mealreport" type="radio" name="tab_item" {{ @$report_type == 'mealreport' ? 'checked="checked"' : '' }}>
+        <input id="mealreport" type="radio" name="tab_item"
+            {{ @$report_type == 'mealreport' ? 'checked="checked"' : '' }}>
         <label id="mealreport" class="tab_item" for="mealreport"><a class="link"
                 href="/ms/userinformation/detail/mealreport?user_id={{ $user_id }}">食事報告</a></label>
         <input id="trainningreport" type="radio" name="tab_item"
@@ -135,8 +164,8 @@
             </div>
         </div>
     </div>
-    <input type="hidden" id="report_type" value="{{@$report_type}}">
-    <input type="hidden" id="user_id" value="{{@$user_id}}">
+    <input type="hidden" id="report_type" value="{{ @$report_type }}">
+    <input type="hidden" id="user_id" value="{{ @$user_id }}">
 @endsection
 
 @endsection
