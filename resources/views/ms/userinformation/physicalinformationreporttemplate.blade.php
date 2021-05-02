@@ -43,10 +43,12 @@
                     </div>
                     <div>
                         @if (@$physicalinformation)
-                            <input type="submit" value="更新" formaction="/ms/userinformation/detail/physicalinformationreport/update?user_id={{$user_id}}&target_date={{$param_target_date}}"
+                            <input type="submit" value="更新"
+                                formaction="/ms/userinformation/detail/physicalinformationreport/update?user_id={{ $user_id }}&target_date={{ $param_target_date }}"
                                 formmethod="POST">
                         @else
-                            <input type="submit" value="登録" formaction="/ms/userinformation/detail/physicalinformationreport/regist?user_id={{$user_id}}&target_date={{$param_target_date}}"
+                            <input type="submit" value="登録"
+                                formaction="/ms/userinformation/detail/physicalinformationreport/regist?user_id={{ $user_id }}&target_date={{ $param_target_date }}"
                                 formmethod="POST">
                         @endif
                     </div>
