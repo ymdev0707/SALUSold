@@ -93,6 +93,7 @@ Route::middleware('auth')->group(function(){
     Route::get('/ms/userinformation/add', 'Ms\User\UserInformationController@add');
     Route::get('/ms/userinformation/regist', 'Ms\User\UserInformationController@regist');
     Route::get('/ms/userinformation/detail/', 'Ms\User\UserInformationController@detail');
+    Route::get('/ms/userinformation/detail/get_graph_data/', 'Ms\User\UserInformationController@get_graph_data');
 
     // ユーザ詳細 
     // 食事報告
