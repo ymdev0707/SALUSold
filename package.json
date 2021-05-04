@@ -37,11 +37,17 @@
         "vue": "^2.5.17",
         "vue-template-compiler": "^2.6.10"
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> origin/master
 =======
     },
     "dependencies": {
         "lightpick": "^1.6.2"
 >>>>>>> a32579478e9228474de7ed6d5017054184c2aa26
+=======
+    },
+    "dependencies": {
+        "lightpick": "^1.6.2"
+>>>>>>> 03fdaaa (管理側 身体情報報告の追加)
     }
 }

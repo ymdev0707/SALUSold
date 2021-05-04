@@ -1,0 +1,76 @@
+[33m4c438ae[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m HEAD@{0}: checkout: moving from dev-user to master
+[33m86cfb52[m[33m ([m[1;32mnewmaster[m[33m, [m[1;32mdev-user[m[33m)[m HEAD@{1}: checkout: moving from master to dev-user
+[33m4c438ae[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m HEAD@{2}: pull origin master: Fast-forward
+[33m9f7343e[m HEAD@{3}: commit: マージ
+[33m57d6d0c[m HEAD@{4}: checkout: moving from 57d6d0cb8d5e0a94fbc71618566ee17a3357abc3 to master
+[33m57d6d0c[m HEAD@{5}: rebase (start): checkout 03fdaaa
+[33m86cfb52[m[33m ([m[1;32mnewmaster[m[33m, [m[1;32mdev-user[m[33m)[m HEAD@{6}: rebase (finish): returning to refs/heads/newmaster
+[33m86cfb52[m[33m ([m[1;32mnewmaster[m[33m, [m[1;32mdev-user[m[33m)[m HEAD@{7}: rebase (start): checkout 86cfb52
+[33m86cfb52[m[33m ([m[1;32mnewmaster[m[33m, [m[1;32mdev-user[m[33m)[m HEAD@{8}: rebase (finish): returning to refs/heads/newmaster
+[33m86cfb52[m[33m ([m[1;32mnewmaster[m[33m, [m[1;32mdev-user[m[33m)[m HEAD@{9}: rebase (start): checkout 86cfb52
+[33m86cfb52[m[33m ([m[1;32mnewmaster[m[33m, [m[1;32mdev-user[m[33m)[m HEAD@{10}: rebase (finish): returning to refs/heads/newmaster
+[33m86cfb52[m[33m ([m[1;32mnewmaster[m[33m, [m[1;32mdev-user[m[33m)[m HEAD@{11}: rebase (start): checkout 86cfb52
+[33m7306c0e[m[33m ([m[1;31morigin/dev-user[m[33m)[m HEAD@{12}: reset: moving to HEAD^
+[33m6fce5e5[m HEAD@{13}: reset: moving to HEAD^
+[33m03fdaaa[m HEAD@{14}: checkout: moving from master to newmaster
+[33m03fdaaa[m HEAD@{15}: reset: moving to HEAD^
+[33m24b09d5[m HEAD@{16}: merge dev-user: Merge made by the 'recursive' strategy.
+[33m03fdaaa[m HEAD@{17}: checkout: moving from dev-user to master
+[33m86cfb52[m[33m ([m[1;32mnewmaster[m[33m, [m[1;32mdev-user[m[33m)[m HEAD@{18}: commit: commit test
+[33md62f09f[m HEAD@{19}: checkout: moving from master to dev-user
+[33m03fdaaa[m HEAD@{20}: checkout: moving from newmaster to master
+[33m03fdaaa[m HEAD@{21}: checkout: moving from dev-user to newmaster
+[33md62f09f[m HEAD@{22}: checkout: moving from master to dev-user
+[33ma325794[m HEAD@{23}: checkout: moving from 03fdaaad70a6b72faf4589fe8cf8a2815e15f4dc to master
+[33m03fdaaa[m HEAD@{24}: checkout: moving from master to 03fdaaad70a6b72faf4589fe8cf8a2815e15f4dc
+[33ma325794[m HEAD@{25}: checkout: moving from dev-user to master
+[33md62f09f[m HEAD@{26}: pull origin master: Merge made by the 'recursive' strategy.
+[33mb13bd53[m HEAD@{27}: pull origin master: Merge made by the 'recursive' strategy.
+[33m57d6d0c[m HEAD@{28}: commit: commit test
+[33m03fdaaa[m HEAD@{29}: checkout: moving from master to dev-user
+[33ma325794[m HEAD@{30}: merge dev-user: Merge made by the 'recursive' strategy.
+[33m0410358[m HEAD@{31}: checkout: moving from dev-user to master
+[33m03fdaaa[m HEAD@{32}: commit: 管理側 身体情報報告の追加
+[33m6fce5e5[m HEAD@{33}: checkout: moving from master to dev-user
+[33m0410358[m HEAD@{34}: merge dev-user: Merge made by the 'recursive' strategy.
+[33m3489d55[m HEAD@{35}: checkout: moving from dev-user to master
+[33m6fce5e5[m HEAD@{36}: checkout: moving from master to dev-user
+[33m3489d55[m HEAD@{37}: checkout: moving from dev-user to master
+[33m6fce5e5[m HEAD@{38}: commit: ユーザー情報を追加
+[33m7306c0e[m[33m ([m[1;31morigin/dev-user[m[33m)[m HEAD@{39}: checkout: moving from master to dev-user
+[33m3489d55[m HEAD@{40}: merge dev-user: Merge made by the 'recursive' strategy.
+[33ma56618d[m HEAD@{41}: checkout: moving from dev-user to master
+[33m7306c0e[m[33m ([m[1;31morigin/dev-user[m[33m)[m HEAD@{42}: commit: 管理画面 食事報告追加
+[33ma56618d[m HEAD@{43}: pull origin master: Fast-forward
+[33me618aae[m HEAD@{44}: checkout: moving from master to dev-user
+[33ma56618d[m HEAD@{45}: commit: ユーザー検索画面を変更
+[33md35860e[m HEAD@{46}: merge dev-user: Merge made by the 'recursive' strategy.
+[33mc33bcee[m HEAD@{47}: checkout: moving from dev-user to master
+[33me618aae[m HEAD@{48}: commit: 管理画面を追加
+[33m0246ff5[m HEAD@{49}: checkout: moving from master to dev-user
+[33mc33bcee[m HEAD@{50}: merge dev-user: Merge made by the 'recursive' strategy.
+[33me3e72dc[m HEAD@{51}: checkout: moving from dev-user to master
+[33m0246ff5[m HEAD@{52}: checkout: moving from master to dev-user
+[33me3e72dc[m HEAD@{53}: checkout: moving from dev-user to master
+[33m0246ff5[m HEAD@{54}: commit: 身体情報報告を追加
+[33m62feb13[m HEAD@{55}: commit: 食事報告処理登録・更新・削除の追加
+[33m3e1c7c2[m HEAD@{56}: checkout: moving from master to dev-user
+[33me3e72dc[m HEAD@{57}: merge dev-user: Merge made by the 'recursive' strategy.
+[33m6254620[m HEAD@{58}: checkout: moving from dev-user to master
+[33m3e1c7c2[m HEAD@{59}: checkout: moving from master to dev-user
+[33m6254620[m HEAD@{60}: checkout: moving from dev-user to master
+[33m3e1c7c2[m HEAD@{61}: commit: 食事報告一時コミット 登録、削除処理の反映
+[33m8607326[m HEAD@{62}: checkout: moving from master to dev-user
+[33m6254620[m HEAD@{63}: merge dev-user: Merge made by the 'recursive' strategy.
+[33mbe12dcc[m HEAD@{64}: checkout: moving from dev-user to master
+[33m8607326[m HEAD@{65}: commit: 食事報告一時コミット
+[33m90873e2[m HEAD@{66}: pull origin master: Fast-forward
+[33med5140f[m HEAD@{67}: checkout: moving from master to dev-user
+[33mbe12dcc[m HEAD@{68}: merge dev-user: Merge made by the 'recursive' strategy.
+[33m5cceb71[m HEAD@{69}: checkout: moving from dev-user to master
+[33med5140f[m HEAD@{70}: commit: 食事報告 一時コミット
+[33m5cceb71[m HEAD@{71}: checkout: moving from master to dev-user
+[33m5cceb71[m HEAD@{72}: pull origin master: Fast-forward
+[33maabe2f9[m[33m ([m[1;31morigin/main[m[33m, [m[1;32mmain[m[33m)[m HEAD@{73}: checkout: moving from main to master
+[33maabe2f9[m[33m ([m[1;31morigin/main[m[33m, [m[1;32mmain[m[33m)[m HEAD@{74}: Branch: renamed refs/heads/master to refs/heads/main
+[33maabe2f9[m[33m ([m[1;31morigin/main[m[33m, [m[1;32mmain[m[33m)[m HEAD@{76}: commit (initial): first commit
