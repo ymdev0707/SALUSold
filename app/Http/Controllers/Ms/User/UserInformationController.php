@@ -22,53 +22,58 @@ class UserInformationController extends MsController
      *
      * @return void
      */
-    public function index(Request $request){
+    public function index(Request $request)
+    {
         return view('ms/userinformation/index');
     }
-    
+
     /**
      * search
      *
      * @param  mixed $request
      * @return void
      */
-    public function search(Request $request){
+    public function search(Request $request)
+    {
         $input = $request->input();
         $user_information = User::get_users($input);
         return view('ms/userinformation/index')->with([
             'user_info' => $user_information
         ]);
     }
-    
+
     /**
      * add
      *
      * @return void
      */
-    public function add(){
+    public function add()
+    {
         return view('ms/userinformation/add');
     }
-    
-        
+
+
     /**
      * regist
      *
      * @param  mixed $request
      * @return void
      */
-    public function regist(Request $request){
+    public function regist(Request $request)
+    {
         $input = $request->input();
         User::create_user($input);
         return view('ms/userinformation/index');
     }
-    
+
     /**
      * detail
      *
      * @param  mixed $request
      * @return void
      */
-    public function detail(Request $request){
+    public function detail(Request $request)
+    {
         $input = $request->input();
         $target_date = self::get_target_date($input);
         $user_information = current(User::get_users($input));
@@ -84,34 +89,65 @@ class UserInformationController extends MsController
         ]);
     }
 
-    
+
     /**
      * init_physicalinformation
      *
      * @param  mixed $param
      * @return void
      */
-    public static function init_physicalinformation($param){
-        $input_date = Arr::get($param,'target_date', null);
-        $user_id = Arr::get($param,'user_id', null);
+    public static function init_physicalinformation($param)
+    {
+        $input_date = Arr::get($param, 'target_date', null);
+        $user_id = Arr::get($param, 'user_id', null);
         $target_date = new DateTime($input_date);
         $target_date = $target_date->format('Y/m/d');
 
-        if(empty($target_date)){
+        if (empty($target_date)) {
             $target_date = new DateTime();
             $target_date = $target_date->format('Y/m/d');
         }
 
         $physicalinformation = current(PhysicalInformation::get_physicalinformation($target_date, $user_id));
-        
+
         return $physicalinformation;
     }
 
-    public static function get_target_date($param){
-        $input_date = Arr::get($param,'target_date', null);
+    /**
+     * get_target_date
+     *
+     * @param  mixed $param
+     * @return void
+     */
+    public static function get_target_date($param)
+    {
+        $input_date = Arr::get($param, 'target_date', null);
         $target_date = new DateTime($input_date);
         $target_date = $target_date->format('Y-m-d');
         return $target_date;
     }
 
+    /**
+     * get_graph_data
+     *
+     * @param  mixed $request
+     * @return void
+     */
+    public function get_graph_data(Request $request)
+    {
+        $param = $request->input();
+        $start_date = Arr::get($param, 'start_date', null);
+        $end_date = Arr::get($param, 'end_date', null);
+        $user_id = Arr::get($param, 'user_id', null);
+        $result = PhysicalInformation::get_physicalinformation_for_graph($user_id, $start_date, $end_date);
+        $array_result = json_decode(json_encode($result), true);
+        header("Content-Type: application/json; charset=UTF-8");
+        $array_result = json_encode(
+            $array_result,
+            JSON_UNESCAPED_SLASHES // スラッシュをエスケープしない
+                | JSON_UNESCAPED_UNICODE // 文字列をUnicodeにエスケープしない
+        );
+        echo $array_result;
+        exit;
+    }
 }

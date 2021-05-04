@@ -26,20 +26,43 @@ class PhysicalInformationReportController extends MsController
         $target_date = self::get_target_date($input);
 
         $user_information = current(User::get_users($input));
-        // Common::debug($user_information);
 
         // 身体情報取得
         $physicalinformation = self::init_physicalinformation($input);
         $tmp_target_date = new DateTime($target_date);
         $param_target_date = $tmp_target_date->format('Ymd');
-        return view('ms/userinformation/detail')->with([
-            'physicalinformation' => $physicalinformation,
-            'target_date' => $target_date,
-            'param_target_date' => $param_target_date,
-            'user_id' => $request->user_id,
-            'report_type' => 'physicalinformationreport',
-            'user_information' => $user_information,
-        ]);
+
+        if ($request->ajax()) {
+            // Ajaxである
+            // $physicalinformation = json_decode(json_encode($physicalinformation), true);
+            header("Content-Type: application/json; charset=UTF-8");
+            $physicalinformation = json_encode(
+                $physicalinformation,
+                JSON_UNESCAPED_SLASHES // スラッシュをエスケープしない
+                    | JSON_UNESCAPED_UNICODE // 文字列をUnicodeにエスケープしない
+            );
+            echo $physicalinformation;
+            exit;
+        } else {
+            // Ajaxではない
+            // $input = $request->input();
+            // $target_date = self::get_target_date($input);
+
+            // $user_information = current(User::get_users($input));
+
+            // // 身体情報取得
+            // $physicalinformation = self::init_physicalinformation($input);
+            // $tmp_target_date = new DateTime($target_date);
+            // $param_target_date = $tmp_target_date->format('Ymd');
+            return view('ms/userinformation/detail')->with([
+                'physicalinformation' => $physicalinformation,
+                'target_date' => $target_date,
+                'param_target_date' => $param_target_date,
+                'user_id' => $request->user_id,
+                'report_type' => 'physicalinformationreport',
+                'user_information' => $user_information,
+            ]);
+        }
     }
 
 
@@ -84,7 +107,7 @@ class PhysicalInformationReportController extends MsController
     {
         $input = $request->input();
         $target_date = $input['target_date'];
-        $user_id = Auth::id();
+        $user_id = Arr::get($input, 'user_id', null);
 
         DB::beginTransaction();
         try {
@@ -110,7 +133,7 @@ class PhysicalInformationReportController extends MsController
     {
         DB::beginTransaction();
         $input = $request->input();
-        $user_id = Auth::id();
+        $user_id = Arr::get($input, 'user_id', null);
         try {
             $result = PhysicalInformation::update_physicalinformationreport($user_id, $input);
             DB::commit();
