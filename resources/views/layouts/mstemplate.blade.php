@@ -13,6 +13,11 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
     {{-- 個別のjavaScript読み込み --}}
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/locale/ja.js"></script>
+    <script src="{{ asset('js/daterangepicker.js') }}" defer></script>
+    <script src="{{ asset('js/msphysicalinformationreport.js') }}" defer></script>
     @yield('javascript-head')
 
     <!-- Fonts -->
@@ -22,6 +27,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/pc.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/daterangepicker.css') }}" rel="stylesheet">
     {{-- 個別のCSS読み込み --}}
     @yield('css')
 </head>
