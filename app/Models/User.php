@@ -2,16 +2,6 @@
 
 namespace App\Models;
 
-<<<<<<< HEAD
-use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-
-class User extends Authenticatable
-{
-    use HasFactory, Notifiable;
-=======
 use App\Functions\Common;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -23,7 +13,6 @@ use Illuminate\Support\Facades\Hash;
 class User extends Authenticatable
 {
     use Notifiable;
->>>>>>> origin/master
 
     /**
      * The attributes that are mass assignable.
@@ -31,11 +20,6 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-<<<<<<< HEAD
-        'name',
-        'email',
-        'password',
-=======
         'last_name',
         'first_name',
         'last_name_kana',
@@ -44,7 +28,6 @@ class User extends Authenticatable
         'password',
         'birth',
         'sex',
->>>>>>> origin/master
     ];
 
     /**
@@ -53,12 +36,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-<<<<<<< HEAD
-        'password',
-        'remember_token',
-=======
         'password', 'remember_token',
->>>>>>> origin/master
     ];
 
     /**
@@ -69,8 +47,6 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-<<<<<<< HEAD
-=======
     
     /**
      * is_admin
@@ -223,5 +199,4 @@ class User extends Authenticatable
             'user_type' => 0,
         ]);
     }
->>>>>>> origin/master
 }

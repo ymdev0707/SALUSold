@@ -22,26 +22,11 @@ class Handler extends ExceptionHandler
      * @var array
      */
     protected $dontFlash = [
-<<<<<<< HEAD
-        'current_password',
-=======
->>>>>>> origin/master
         'password',
         'password_confirmation',
     ];
 
     /**
-<<<<<<< HEAD
-     * Register the exception handling callbacks for the application.
-     *
-     * @return void
-     */
-    public function register()
-    {
-        $this->reportable(function (Throwable $e) {
-            //
-        });
-=======
      * Report or log an exception.
      *
      * @param  \Throwable  $exception
@@ -66,6 +51,5 @@ class Handler extends ExceptionHandler
     public function render($request, Throwable $exception)
     {
         return parent::render($request, $exception);
->>>>>>> origin/master
     }
 }

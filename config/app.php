@@ -13,13 +13,9 @@ return [
     |
     */
 
-<<<<<<< HEAD
-    'name' => env('APP_NAME', 'Laravel'),
-=======
     // env()関数は挙動がおかしいため使用しない
     // 'name' => env('APP_NAME', 'Laravel'),
     'name' => 'SALUS',
->>>>>>> origin/master
 
     /*
     |--------------------------------------------------------------------------
@@ -45,12 +41,8 @@ return [
     |
     */
 
-<<<<<<< HEAD
-    'debug' => (bool) env('APP_DEBUG', false),
-=======
     // 'debug' => (bool) env('APP_DEBUG', false),
     'debug' => true,
->>>>>>> origin/master
 
     /*
     |--------------------------------------------------------------------------
@@ -78,11 +70,7 @@ return [
     |
     */
 
-<<<<<<< HEAD
-    'timezone' => 'UTC',
-=======
     'timezone' => 'Asia/Tokyo',
->>>>>>> origin/master
 
     /*
     |--------------------------------------------------------------------------
@@ -95,11 +83,7 @@ return [
     |
     */
 
-<<<<<<< HEAD
-    'locale' => 'en',
-=======
     'locale' => 'ja',
->>>>>>> origin/master
 
     /*
     |--------------------------------------------------------------------------
@@ -180,11 +164,8 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-<<<<<<< HEAD
-=======
         // add
         Collective\Html\HtmlServiceProvider::class,
->>>>>>> origin/master
 
         /*
          * Package Service Providers...
@@ -225,10 +206,6 @@ return [
         'Config' => Illuminate\Support\Facades\Config::class,
         'Cookie' => Illuminate\Support\Facades\Cookie::class,
         'Crypt' => Illuminate\Support\Facades\Crypt::class,
-<<<<<<< HEAD
-        'Date' => Illuminate\Support\Facades\Date::class,
-=======
->>>>>>> origin/master
         'DB' => Illuminate\Support\Facades\DB::class,
         'Eloquent' => Illuminate\Database\Eloquent\Model::class,
         'Event' => Illuminate\Support\Facades\Event::class,
@@ -243,11 +220,7 @@ return [
         'Password' => Illuminate\Support\Facades\Password::class,
         'Queue' => Illuminate\Support\Facades\Queue::class,
         'Redirect' => Illuminate\Support\Facades\Redirect::class,
-<<<<<<< HEAD
-        // 'Redis' => Illuminate\Support\Facades\Redis::class,
-=======
         'Redis' => Illuminate\Support\Facades\Redis::class,
->>>>>>> origin/master
         'Request' => Illuminate\Support\Facades\Request::class,
         'Response' => Illuminate\Support\Facades\Response::class,
         'Route' => Illuminate\Support\Facades\Route::class,
@@ -258,11 +231,8 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-<<<<<<< HEAD
-=======
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
->>>>>>> origin/master
 
     ],
 

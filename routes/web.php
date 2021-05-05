@@ -13,11 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-<<<<<<< HEAD
-Route::get('/', function () {
-    return view('welcome');
-});
-=======
 Auth::routes();
 
 // --------------------------------------------------POST--------------------------------------------------
@@ -108,4 +103,3 @@ Route::middleware('auth')->group(function(){
     // 身体情報報告
     Route::get('/ms/userinformation/detail/physicalinformationreport/', 'Ms\User\PhysicalInformationReportController@index');
 });
->>>>>>> origin/master

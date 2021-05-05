@@ -27,11 +27,8 @@ class EventServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-<<<<<<< HEAD
-=======
         parent::boot();
 
->>>>>>> origin/master
         //
     }
 }

@@ -17,11 +17,7 @@ class Kernel extends HttpKernel
         // \App\Http\Middleware\TrustHosts::class,
         \App\Http\Middleware\TrustProxies::class,
         \Fruitcake\Cors\HandleCors::class,
-<<<<<<< HEAD
-        \App\Http\Middleware\PreventRequestsDuringMaintenance::class,
-=======
         \App\Http\Middleware\CheckForMaintenanceMode::class,
->>>>>>> origin/master
         \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
         \App\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
@@ -44,11 +40,7 @@ class Kernel extends HttpKernel
         ],
 
         'api' => [
-<<<<<<< HEAD
-            'throttle:api',
-=======
             'throttle:60,1',
->>>>>>> origin/master
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
     ];
@@ -63,10 +55,7 @@ class Kernel extends HttpKernel
     protected $routeMiddleware = [
         'auth' => \App\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
-<<<<<<< HEAD
-=======
         'bindings' => \Illuminate\Routing\Middleware\SubstituteBindings::class,
->>>>>>> origin/master
         'cache.headers' => \Illuminate\Http\Middleware\SetCacheHeaders::class,
         'can' => \Illuminate\Auth\Middleware\Authorize::class,
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,

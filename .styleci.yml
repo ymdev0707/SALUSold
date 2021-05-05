@@ -1,11 +1,7 @@
 php:
   preset: laravel
   disabled:
-<<<<<<< HEAD
-    - no_unused_imports
-=======
     - unused_use
->>>>>>> origin/master
   finder:
     not-name:
       - index.php

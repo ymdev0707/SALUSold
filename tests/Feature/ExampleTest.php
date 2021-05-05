@@ -12,11 +12,7 @@ class ExampleTest extends TestCase
      *
      * @return void
      */
-<<<<<<< HEAD
-    public function test_example()
-=======
     public function testBasicTest()
->>>>>>> origin/master
     {
         $response = $this->get('/');
 
