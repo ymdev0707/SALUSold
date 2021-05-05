@@ -13,6 +13,12 @@ return [
     | using this caching library. This connection is used when another is
     | not explicitly specified when executing a given caching function.
     |
+<<<<<<< HEAD
+=======
+    | Supported: "apc", "array", "database", "file",
+    |            "memcached", "redis", "dynamodb"
+    |
+>>>>>>> origin/master
     */
 
     'default' => env('CACHE_DRIVER', 'file'),
@@ -26,9 +32,12 @@ return [
     | well as their drivers. You may even define multiple stores for the
     | same cache driver to group types of items stored in your caches.
     |
+<<<<<<< HEAD
     | Supported drivers: "apc", "array", "database", "file",
     |            "memcached", "redis", "dynamodb", "null"
     |
+=======
+>>>>>>> origin/master
     */
 
     'stores' => [
@@ -46,7 +55,10 @@ return [
             'driver' => 'database',
             'table' => 'cache',
             'connection' => null,
+<<<<<<< HEAD
             'lock_connection' => null,
+=======
+>>>>>>> origin/master
         ],
 
         'file' => [
@@ -76,7 +88,10 @@ return [
         'redis' => [
             'driver' => 'redis',
             'connection' => 'cache',
+<<<<<<< HEAD
             'lock_connection' => 'default',
+=======
+>>>>>>> origin/master
         ],
 
         'dynamodb' => [

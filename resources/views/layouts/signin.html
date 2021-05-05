@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<link href="app.css" rel="stylesheet">
+<link href="pc.css" rel="stylesheet">
+<head>
+    <title>トップ</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:700 rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">SALUS</a>
+            <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse" id="navbarsExample03" style="">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                  <a class="nav-link" href="#">SALUSとは <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link" href="#">新規登録/ログイン</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">お問い合わせ</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+    </header>
+    <div class="container text-center pt-5">
+        <form class="form-signin">
+            <img class="mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+            <h1 class="h3 mb-3 font-weight-normal">ログイン</h1>
+            <label for="inputEmail" class="sr-only">Email address</label>
+            <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
+            <label for="inputPassword" class="sr-only">Password</label>
+            <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
+            <div class="checkbox mb-3">
+              <label>
+                <input type="checkbox" value="remember-me"> ログイン情報を保存
+              </label>
+            </div>
+            <button class="btn btn-dark btn-primary btn-block" type="submit">Sign In</button>
+            <p class="mt-5 mb-3 text-muted">© 2020-2021</p>
+          </form>
+    </div>
+</body>
+<foot>
+</foot>
+</html>

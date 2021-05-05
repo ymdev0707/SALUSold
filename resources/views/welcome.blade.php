@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -31,11 +32,40 @@
 
                         @if (Route::has('register'))
                             <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
+=======
+@extends('layouts.template')
+
+@section('css')
+    {{-- この場所に画面毎のcssを記述する --}}
+
+@endsection
+
+@section('javascript-head')
+    {{-- この場所に画面毎(ヘッダ位置)のjsを記述する --}}
+
+@endsection
+
+@section('content')
+    @extends('layouts.header')
+
+    <body>
+        <div class="flex-center position-ref full-height">
+            @if (Route::has('login'))
+                <div class="top-right links">
+                    @auth
+                        <a href="{{ url('/home') }}">Home</a>
+                    @else
+                        <a href="{{ route('login') }}">Login</a>
+
+                        @if (Route::has('register'))
+                            <a href="{{ route('register') }}">Register</a>
+>>>>>>> origin/master
                         @endif
                     @endauth
                 </div>
             @endif
 
+<<<<<<< HEAD
             <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
                 <div class="flex justify-center pt-8 sm:justify-start sm:pt-0">
                     <svg viewBox="0 0 651 192" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-16 w-auto text-gray-700 sm:h-20">
@@ -125,8 +155,33 @@
                     <div class="ml-4 text-center text-sm text-gray-500 sm:text-right sm:ml-0">
                         Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
                     </div>
+=======
+            <div class="content">
+                <div class="title m-b-md">
+                    Laravel
+                </div>
+
+                <div class="links">
+                    <a href="https://laravel.com/docs">Docs</a>
+                    <a href="https://laracasts.com">Laracasts</a>
+                    <a href="https://laravel-news.com">News</a>
+                    <a href="https://blog.laravel.com">Blog</a>
+                    <a href="https://nova.laravel.com">Nova</a>
+                    <a href="https://forge.laravel.com">Forge</a>
+                    <a href="https://vapor.laravel.com">Vapor</a>
+                    <a href="https://github.com/laravel/laravel">GitHub</a>
+>>>>>>> origin/master
                 </div>
             </div>
         </div>
     </body>
+<<<<<<< HEAD
 </html>
+=======
+@endsection
+
+@section('javascript-footer')
+    {{-- この場所に画面毎(フッタ位置)のjsを記述する --}}
+
+@endsection
+>>>>>>> origin/master

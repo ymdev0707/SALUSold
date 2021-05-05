@@ -22,12 +22,16 @@ class Handler extends ExceptionHandler
      * @var array
      */
     protected $dontFlash = [
+<<<<<<< HEAD
         'current_password',
+=======
+>>>>>>> origin/master
         'password',
         'password_confirmation',
     ];
 
     /**
+<<<<<<< HEAD
      * Register the exception handling callbacks for the application.
      *
      * @return void
@@ -37,5 +41,31 @@ class Handler extends ExceptionHandler
         $this->reportable(function (Throwable $e) {
             //
         });
+=======
+     * Report or log an exception.
+     *
+     * @param  \Throwable  $exception
+     * @return void
+     *
+     * @throws \Throwable
+     */
+    public function report(Throwable $exception)
+    {
+        parent::report($exception);
+    }
+
+    /**
+     * Render an exception into an HTTP response.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \Throwable  $exception
+     * @return \Symfony\Component\HttpFoundation\Response
+     *
+     * @throws \Throwable
+     */
+    public function render($request, Throwable $exception)
+    {
+        return parent::render($request, $exception);
+>>>>>>> origin/master
     }
 }
