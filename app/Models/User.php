@@ -164,7 +164,7 @@ class User extends Authenticatable
                         ELSE 201 
                     END AS IS_ADMIN_VALUE 
                 FROM
-                    user AS us 
+                    users AS us 
                     LEFT JOIN ADMINISTRATOR_INFORMATION AS ai 
                         ON us.id = ai.USER_ID 
                     LEFT JOIN ENROLLMENT_STORE_INFORMATION AS esi 
