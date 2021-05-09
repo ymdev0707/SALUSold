@@ -14,7 +14,7 @@
                     </div>
                     <div>
                         <input class="report_value" name="height" type="number" id="height"
-                            value={{ @$physicalinformation->HEIGHT }}>
+                            value={{ @$physicalinformation->height }}>
                         <label>cm</label>
                     </div>
                     <div>
@@ -22,7 +22,7 @@
                     </div>
                     <div>
                         <input class="report_value" name="weight" type="number" id="weight"
-                            value={{ @$physicalinformation->WEIGHT }}>
+                            value={{ @$physicalinformation->weight }}>
                         <label>kg</label>
                     </div>
                     <div>
@@ -30,7 +30,7 @@
                     </div>
                     <div>
                         <input class="report_value" name="body_fat_percentage" type="number" id="body_fat_percentage"
-                            value={{ @$physicalinformation->BODY_FAT_PERCENTAGE }}>
+                            value={{ @$physicalinformation->body_fat_percentage }}>
                         <label>%</label>
                     </div>
                     <div>
@@ -38,18 +38,18 @@
                     </div>
                     <div>
                         <input class="report_value" name="muscle_mass" type="number" id="muscle_mass"
-                            value={{ @$physicalinformation->MUSCLE_MASS }}>
+                            value={{ @$physicalinformation->muscle_mass }}>
                         <label>kg</label>
                     </div>
                     <div>
                         @if (@$physicalinformation)
                             <input type="submit" value="更新"
                                 formaction="/ms/userinformation/detail/physicalinformationreport/update?user_id={{ $user_id }}&target_date={{ $param_target_date }}"
-                                formmethod="POST">
+                                formmethod="post">
                         @else
                             <input type="submit" value="登録"
                                 formaction="/ms/userinformation/detail/physicalinformationreport/regist?user_id={{ $user_id }}&target_date={{ $param_target_date }}"
-                                formmethod="POST">
+                                formmethod="post">
                         @endif
                     </div>
                 </div>
