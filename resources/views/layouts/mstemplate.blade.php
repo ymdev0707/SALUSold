@@ -1,45 +1,33 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>{{ config('app.name', 'Laravel') }}</title>
-
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-    {{-- 個別のjavaScript読み込み --}}
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/locale/ja.js"></script>
-    <script src="{{ asset('js/daterangepicker.js') }}" defer></script>
-    <script src="{{ asset('js/msphysicalinformationreport.js') }}" defer></script>
-    @yield('javascript-head')
-
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/pc.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/daterangepicker.css') }}" rel="stylesheet">
-    {{-- 個別のCSS読み込み --}}
-    @yield('css')
-</head>
-<body>
-    <div id="app">
-        <main class="py-4">
-            {{-- コンテンツ部分読み込み --}}
-            @yield('content')
-        </main>
-    </div>
-
-    {{-- 個別のjavaScript読み込み --}}
-    @yield('javascript-footer')
-</body>
-</html>
+<header>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-success-salus-light">
+        <a class="navbar-brand " href="{{ url('/') }}">SALUS</a>
+        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarsExample03"
+            aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse" id="navbarsExample03" style="">
+            <ul class="navbar-nav mr-auto text-right">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/ms/userinformation">ユーザ管理</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/ms/trainnerinformation">トレーナー管理</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/ms/outputdata">各種データ出力</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
+            document.getElementById('logout-form').submit();">
+                        {{ __('ログアウト') }}
+                    </a>
+                </li>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                </form>
+            </ul>
+        </div>
+    </nav>
+    <script>
+    </script>
+</header>

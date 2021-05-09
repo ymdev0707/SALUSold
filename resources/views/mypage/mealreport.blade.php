@@ -59,7 +59,7 @@
         </div>
         <input type="date" id="target_date" value={{ $target_date }}>
         <div id="report_list">
-            @foreach ($mealreport as $key => $report)a
+            @foreach ($mealreport as $key => $report)
                 <form method="post">
                     @csrf
                     <div id="mealreport-wrapper">

@@ -1,5 +1,4 @@
-@extends('layouts.mstemplate')
-
+@extends('layouts.msheader')
 @section('css')
     {{-- この場所に画面毎のcssを記述する --}}
     <style>
@@ -9,7 +8,7 @@
             padding: 15px;
             margin: 10px;
             text-align: center;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
         }
 
         .item p {
@@ -34,7 +33,7 @@
         .tabs {
             margin-top: 50px;
             background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
             width: 98%;
             margin: 0 auto;
             clear: left;
@@ -120,6 +119,7 @@
         .content {
             float: left;
         }
+
         .container {
             padding: 10px;
         }
@@ -129,13 +129,12 @@
 @section('javascript-head')
     {{-- この場所に画面毎(ヘッダ位置)のjsを記述する --}}
     <script type="text/javascript">
-        window.onload = function() {}
 
     </script>
 @endsection
 
 @section('content')
-    @extends('layouts.msheader')
+    @extends('layouts.mstemplate')
 
 @section('content')
     <div class="flexbox">
@@ -184,6 +183,7 @@
             </div>
             <div class="tab_content" id="trainningreport_content">
                 <div class="tab_content_description">
+                    @include("ms.userinformation.trainningreporttemplate")
                 </div>
             </div>
             <div class="tab_content" id="physicalinformation_content">
@@ -197,12 +197,10 @@
         <input type="hidden" id="start_date" value="{{ @$start_date }}">
         <input type="hidden" id="end_date" value="{{ @$end_date }}">
     @endsection
-
 @endsection
-
 @section('javascript-footer')
     {{-- この場所に画面毎(フッタ位置)のjsを記述する --}}
     <script type="text/javascript">
-
+  
     </script>
 @endsection

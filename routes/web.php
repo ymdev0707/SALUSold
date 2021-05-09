@@ -46,11 +46,13 @@ Route::post('/ms/userinformation/detail', 'Ms\User\UserInformationController@det
 Route::post('/ms/userinformation/detail/mealreport/', 'Ms\User\MealReportController@index');
 Route::post('/ms/userinformation/detail/mealreport/regist', 'Ms\User\MealReportController@regist');
 Route::post('/ms/userinformation/detail/mealreport/update', 'Ms\User\MealReportController@update');
+Route::post('/ms/userinformation/detail/mealreport/delete', 'Ms\User\MealReportController@delete');
 
 // トレーニング報告
 Route::post('/ms/userinformation/detail/trainningreport/', 'Ms\User\TrainningReportController@index');
 Route::post('/ms/userinformation/detail/trainningreport/regist', 'Ms\User\TrainningReportController@regist');
 Route::post('/ms/userinformation/detail/trainningreport/update', 'Ms\User\TrainningReportController@update');
+Route::post('/ms/userinformation/detail/trainningreport/delete', 'Ms\User\TrainningReportController@delete');
 
 // 身体情報報告
 Route::post('/ms/userinformation/detail/physicalinformationreport/', 'Ms\User\PhysicalInformationReportController@index');
