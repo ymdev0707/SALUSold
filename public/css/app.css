@@ -29,6 +29,7 @@
   --danger: #e3342f;
   --light: #f8f9fa;
   --dark: #343a40;
+  --salus-light: #5ab4bd;
   --breakpoint-xs: 0;
   --breakpoint-sm: 576px;
   --breakpoint-md: 768px;
@@ -6974,6 +6975,10 @@ button.bg-secondary:focus {
 
 .bg-success {
   background-color: #38c172 !important;
+}
+
+.bg-success-salus-light {
+  background-color: #5ab4bd !important;
 }
 
 a.bg-success:hover,

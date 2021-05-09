@@ -14,7 +14,7 @@ use DateTime;
 use App\Models\User;
 use Symfony\Component\ErrorHandler\Debug;
 
-class MealReportController extends Controller
+class TrainningReportController extends Controller
 {
     /**
      * index
@@ -28,7 +28,7 @@ class MealReportController extends Controller
             'target_date' => $init_report_data['target_date'],
             'param_target_date' => $init_report_data['param_target_date'],
             'user_id' => $request->user_id,
-            'report_type' => 'mealreport',
+            'report_type' => 'trainningreport',
             'user_information' => $init_report_data['user_information'],
             'mealreport' => $init_report_data['mealreport'],
         ]);
