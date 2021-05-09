@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Ms\User;
 
-use App\Functions\Common;
+use App\Functions\Common\Common;
 use App\Http\Controllers\MsController;
 use Illuminate\Http\Request;
 use App\Models\PhysicalInformation;
@@ -23,12 +23,12 @@ class PhysicalInformationReportController extends MsController
     public function index(Request $request)
     {
         $input = $request->input();
-        $target_date = self::get_target_date($input);
+        $target_date = Common::get_target_date($input);
 
         $user_information = current(User::get_users($input));
 
         // 身体情報取得
-        $physicalinformation = self::init_physicalinformation($input);
+        $physicalinformation = Common::init_physicalinformation($input);
         $tmp_target_date = new DateTime($target_date);
         $param_target_date = $tmp_target_date->format('Ymd');
 

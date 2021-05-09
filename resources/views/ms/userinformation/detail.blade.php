@@ -3,10 +3,36 @@
 @section('css')
     {{-- この場所に画面毎のcssを記述する --}}
     <style>
+        .item {
+            border-radius: 10px;
+            background: #5d94940d;
+            padding: 15px;
+            margin: 10px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .item p {
+            text-align: center;
+        }
+
+        @media (min-width: 600px) {
+            .flexbox {
+                display: -webkit-box;
+                display: -ms-flexbox;
+                display: flex;
+                -ms-flex-wrap: wrap;
+                flex-wrap: wrap;
+            }
+
+            .item {
+                width: 46%;
+            }
+        }
+
         /*タブ切り替え全体のスタイル*/
         .tabs {
             margin-top: 50px;
-            padding-bottom: 40px;
             background-color: #fff;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
             width: 98%;
@@ -46,6 +72,7 @@
             padding: 40px 40px 0;
             clear: both;
             overflow: hidden;
+            background: #5d94940d;
         }
 
         .link {
@@ -93,6 +120,9 @@
         .content {
             float: left;
         }
+        .container {
+            padding: 10px;
+        }
 
     </style>
 @endsection
@@ -108,18 +138,32 @@
     @extends('layouts.msheader')
 
 @section('content')
-    <div class="contents">
-        <div class="content">
-            <h1>ユーザー情報</h1>
-            @include('ms.userinformation.userinformation')
+    <div class="flexbox">
+        <div class="item">
+            <div class="userdata">
+                <!-- ユーザ情報 -->
+                <p>ユーザ情報</p>
+                @include('ms.userinformation.userinformation')
+            </div>
         </div>
-        <div class="content">
-            <h1>グラフ</h1>
-            @include('ms.userinformation.dashboard')
+
+        <div class="item">
+            <div class="graph">
+                <!-- 身体情報のグラフ -->
+                <p>身体情報グラフ</p>
+                @include('ms.userinformation.dashboard')
+            </div>
         </div>
-        <div class="tabs">
-            <h1>報告情報</h1>
+
+        <div class="item">
+            <div class="graph">
+                <!-- 摂取カロリーのグラフ -->
+                <p>摂取カロリーグラフ</p>
+                {{-- @include('ms.userinformation.dashboard') --}}
+                未実装
+            </div>
         </div>
+
         <div class="tabs">
             <input id="mealreport" type="radio" name="tab_item"
                 {{ @$report_type == 'mealreport' ? 'checked="checked"' : '' }}>
@@ -135,6 +179,7 @@
                     href="/ms/userinformation/detail/physicalinformationreport?user_id={{ $user_id }}">身体情報報告</a></label>
             <div class="tab_content" id="mealreport_content">
                 <div class="tab_content_description">
+                    @include("ms.userinformation.mealreporttemplate")
                 </div>
             </div>
             <div class="tab_content" id="trainningreport_content">
@@ -151,14 +196,13 @@
         <input type="hidden" id="user_id" value="{{ @$user_id }}">
         <input type="hidden" id="start_date" value="{{ @$start_date }}">
         <input type="hidden" id="end_date" value="{{ @$end_date }}">
-    </div>
-@endsection
+    @endsection
 
 @endsection
 
 @section('javascript-footer')
-{{-- この場所に画面毎(フッタ位置)のjsを記述する --}}
-<script type="text/javascript">
+    {{-- この場所に画面毎(フッタ位置)のjsを記述する --}}
+    <script type="text/javascript">
 
-</script>
+    </script>
 @endsection

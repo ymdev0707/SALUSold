@@ -64,7 +64,6 @@ window.onload = function () {
 function draw_graph_date(start, end) {
     var user_id = $('#user_id').val();
     var target_url = '/ms/userinformation/detail/get_graph_data?start_date=' + start + '&end_date=' + end + '&user_id=' + user_id;
-    console.log(target_url);
     $.get({
         url: target_url,
         dataType: 'json', //必須。json形式で返すように設定
@@ -93,7 +92,7 @@ function draw_physical_information_graph(graph_data_physical) {
     });
 
     var ctx = document.getElementById("physical_chart").getContext('2d');
-    var ChartDemo = new Chart(ctx, {
+    var chart = new Chart(ctx, {
         type: 'line',
         data: {
             labels: arr_target_date,
@@ -121,11 +120,12 @@ function draw_physical_information_graph(graph_data_physical) {
             ]
         },
         options: {
-            responsive: false,
+            responsive: true,
+            maintainAspectRatio: false,
             scales: {
                 xAxes: [{
                     ticks: {
-                        fontSize: 18,
+                        // fontSize: 18,
                         minRotation: 0, // ┐表示角度水平
                         maxRotation: 0, // ┘
                         maxTicksLimit: 10, // 最大表示数

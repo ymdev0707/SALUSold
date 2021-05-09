@@ -1,3 +1,4 @@
+@extends('layouts.template')
 @section('css')
     {{-- この場所に画面毎のcssを記述する --}}
 @endsection
@@ -58,7 +59,7 @@
         </div>
         <input type="date" id="target_date" value={{ $target_date }}>
         <div id="report_list">
-            @foreach ($mealreport as $key => $report)
+            @foreach ($mealreport as $key => $report)a
                 <form method="post">
                     @csrf
                     <div id="mealreport-wrapper">
