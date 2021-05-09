@@ -1,4 +1,4 @@
-@extends('layouts.mstemplate')
+@extends('layouts.msheader')
 
 @section('css')
     {{-- この場所に画面毎のcssを記述する --}}
@@ -12,7 +12,7 @@
 @endsection
 
 @section('content')
-    @extends('layouts.msheader')
+    @extends('layouts.mstemplate')
 @section('content')
     <form action="{{ url('/ms/userinformation/search') }}" method="post">
         {{ csrf_field() }}
