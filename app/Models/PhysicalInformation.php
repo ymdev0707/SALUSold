@@ -108,7 +108,7 @@ class PhysicalInformation extends Model
         $sql = "
             SELECT
                 TARGET_DATE_KEY
-                , PHYSICAL_INFORRMATION_ID
+                , PHYSICAL_INFORMATION_ID
                 , USER_ID
                 , ifnull(HEIGHT, 0) as HEIGHT
                 , ifnull(WEIGHT, 0) as WEIGHT
