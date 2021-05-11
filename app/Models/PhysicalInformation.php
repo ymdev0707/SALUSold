@@ -17,15 +17,15 @@ class PhysicalInformation extends Model
      * @var array
      */
     protected $fillable = [
-        'user_id',
-        'height',
-        'weight',
-        'body_fat_percentage',
-        'muscle_mass',
-        'target_date',
-        'created_at',
-        'updated_at',
-        'is_deleted',
+        'USER_ID',
+        'HEIGHT',
+        'WEIGHT',
+        'BODY_FAT_PERCENTAGE',
+        'MUSCLE_MASS',
+        'TARGET_DATE',
+        'CREATED_AT',
+        'UPDATED_AT',
+        'IS_DELETED',
     ];
 
     /**
@@ -41,12 +41,11 @@ class PhysicalInformation extends Model
                 SELECT
                     *
                 FROM
-                    physical_information
+                    PHYSICAL_INFORMATION
                 WHERE
-                    user_id = {$user_id} 
-                    and target_date = '{$target_date}'
-                    and is_deleted = 0 
-                    and is_deleted = 0
+                    USER_ID = {$user_id} 
+                    and TARGET_DATE = '{$target_date}'
+                    and IS_DELETED = 0 
         ";
         
         $physicalinformation = DB::select($sql);
@@ -63,12 +62,12 @@ class PhysicalInformation extends Model
     public static function regist_physicalinformationreport($user_id, $param){
         $physicalinformation = new PhysicalInformation();
         $result = $physicalinformation->create([
-            'user_id' => $user_id,
-            'height' => Arr::get($param, 'height'),
-            'weight' => Arr::get($param, 'weight'),
-            'body_fat_percentage' => Arr::get($param, 'body_fat_percentage'),
-            'muscle_mass' => Arr::get($param, 'muscle_mass'),
-            'target_date' => Arr::get($param, 'target_date'),
+            'USER_ID' => $user_id,
+            'HEIGHT' => Arr::get($param, 'height'),
+            'WEIGHT' => Arr::get($param, 'weight'),
+            'BODY_FAT_PERCENTAGE' => Arr::get($param, 'body_fat_percentage'),
+            'MUSCLE_MASS' => Arr::get($param, 'muscle_mass'),
+            'TARGET_DATE' => Arr::get($param, 'target_date'),
         ]);
         return $result;
     }
@@ -77,15 +76,15 @@ class PhysicalInformation extends Model
         $physicalinformation = new PhysicalInformation();
         $result = $physicalinformation
             ->where([
-                'user_id' => $user_id,
-                'target_date' => Arr::get($param, 'target_date'),
+                'USER_ID' => $user_id,
+                'TARGET_DATE' => Arr::get($param, 'target_date'),
             ])
             ->update([
-                'height' => Arr::get($param, 'height'),
-                'weight' => Arr::get($param, 'weight'),
-                'body_fat_percentage' => Arr::get($param, 'body_fat_percentage'),
-                'muscle_mass' => Arr::get($param, 'muscle_mass'),
-                'target_date' => Arr::get($param, 'target_date'),
+                'HEIGHT' => Arr::get($param, 'height'),
+                'WEIGHT' => Arr::get($param, 'weight'),
+                'BODY_FAT_PERCENTAGE' => Arr::get($param, 'body_fat_percentage'),
+                'MUSCLE_MASS' => Arr::get($param, 'muscle_mass'),
+                'TARGET_DATE' => Arr::get($param, 'target_date'),
             ]);
         return $result;
     }
@@ -108,18 +107,18 @@ class PhysicalInformation extends Model
 
         $sql = "
             SELECT
-                target_date_key
-                , physical_inforrmation_id
-                , user_id
-                , ifnull(height, 0) as height
-                , ifnull(weight, 0) as weight
-                , ifnull(body_fat_percentage, 0) as body_fat_percentage
-                , ifnull(muscle_mass, 0) as muscle_mass
-                , target_date
-                , date_format(target_date_key,'%c/%e') as disp_target_date
-                , created_at
-                , updated_at
-                , is_deleted 
+                TARGET_DATE_KEY
+                , PHYSICAL_INFORRMATION_ID
+                , USER_ID
+                , ifnull(HEIGHT, 0) as HEIGHT
+                , ifnull(WEIGHT, 0) as WEIGHT
+                , ifnull(BODY_FAT_PERCENTAGE, 0) as BODY_FAT_PERCENTAGE
+                , ifnull(MUSCLE_MASS, 0) as MUSCLE_MASS
+                , TARGET_DATE
+                , date_format(TARGET_DATE_KEY,'%c/%e') as DISP_TARGET_DATE
+                , CREATED_AT
+                , UPDATED_AT
+                , IS_DELETED 
             FROM
                 ( 
                     SELECT
@@ -148,15 +147,15 @@ class PhysicalInformation extends Model
                     SELECT
                         * 
                     FROM
-                        physical_information 
+                        PHYSICAL_INFORMATION 
                     WHERE
-                        target_date BETWEEN '{$start_date}' AND '{$end_date}'  
+                        TARGET_DATE BETWEEN '{$start_date}' AND '{$end_date}'  
                         AND USER_ID = {$user_id} 
                         AND IS_DELETED = 0
                 ) AS pi 
-                    ON pi.target_date = calendar.target_date_key
+                    ON pi.TARGET_DATE = calendar.TARGET_DATE_KEY
             ORDER BY
-            target_date_key ASC
+            TARGET_DATE_KEY ASC
         ";
         $physicalinformation = DB::select($sql);
         return $physicalinformation;

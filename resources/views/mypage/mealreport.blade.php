@@ -22,7 +22,7 @@
                 $('.form_target_date').val(target_date);
             });
 
-            $('#target_date').on('change', function(e) {
+            $('.target_date').on('change', function(e) {
                 $('#form_target_date').val(e.target.value);
                 var toDoubleDigits = function(num) {
                     num += "";
@@ -57,7 +57,7 @@
         <div class="col-md-6" style="max-width: 100%;">
             <h4 class="mb-3 border-bottom">食事報告</h4>
         </div>
-        <input type="date" id="target_date" value={{ $target_date }}>
+        <input type="date" class="target_date" value={{ $target_date }}>
         <div id="report_list">
             @foreach ($mealreport as $key => $report)
                 <form method="post">

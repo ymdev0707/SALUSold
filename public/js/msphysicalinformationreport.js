@@ -2,7 +2,6 @@ var graph_data_physical;
 window.onload = function () {
     var FORMAT_YYYYMMDD = 'YYYY/MM/DD';
     var FORMAT_YYYYMMDD_PARAM = 'YYYYMMDD';
-
     $('#range_calendar').daterangepicker({
         singleDatePicker: false,
         showDropdowns: false,
@@ -18,7 +17,7 @@ window.onload = function () {
     });
 
     // 身体情報報告日付変更時
-    $('#target_date').on('change', function (e) {
+    $('.target_date').on('change', function (e) {
         $('#form_target_date').val(e.target.value);
         var toDoubleDigits = function (num) {
             num += "";
@@ -176,4 +175,12 @@ function draw_physical_information_graph(graph_data_physical) {
             },
         }
     });
+}
+
+function preview_image(obj) {
+    var fileReader = new FileReader();
+    fileReader.onload = (function() {
+        document.getElementById('preview').src = fileReader.result;
+    });
+    fileReader.readAsDataURL(obj.files[0]);
 }

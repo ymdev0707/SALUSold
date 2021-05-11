@@ -21,49 +21,6 @@
     <script src="{{ asset('js/msphysicalinformationreport.js') }}" defer></script>
     {{-- <script src="{{ asset('js/mealreport.js') }}" defer></script> --}}
     <script>
-        window.onload = function() {
-            // レポートのテンプレートを読み込む
-            // $("#mealreport-wrapper").load("/template/report/mealreport-wrapper.blade.php");
-
-            // 追加ボタン押下時にレポートを追加する
-            $('#add-wrapper').on('click', function() {
-                // template要素を取得
-                var template = document.getElementById('mealreprt_form_template');
-                // template要素の内容を複製
-                var clone = template.content.cloneNode(true);
-                // div#containerの中に追加
-                document.getElementById('report_list').appendChild(clone);
-                var target_date = $('#target_date').val();
-                console.log(target_date);
-                $('.form_target_date').val(target_date);
-            });
-
-            $('#target_date').on('change', function(e) {
-                $('#form_target_date').val(e.target.value);
-                var toDoubleDigits = function(num) {
-                    num += "";
-                    if (num.length === 1) {
-                        num = "0" + num;
-                    }
-                    return num;
-                };
-                var today = new Date(e.target.value);
-                var year = today.getFullYear();
-                var month = toDoubleDigits(today.getMonth() + 1);
-                var day = toDoubleDigits(today.getDate());
-                var ymd = year += month += day;
-                location.href = '/mypage/mealreport/?target_date=' + ymd;
-            });
-        }
-
-        function preview_image(obj) {
-            var fileReader = new FileReader();
-            fileReader.onload = (function() {
-                document.getElementById('preview').src = fileReader.result;
-            });
-            fileReader.readAsDataURL(obj.files[0]);
-        }
-
     </script>
     @yield('javascript-head')
 

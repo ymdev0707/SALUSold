@@ -8,13 +8,13 @@
             @csrf
             <div id="physicalinformation-wrapper">
                 <div class="report">
-                    <input type="date" name="target_date" id="target_date" value={{ @$target_date }}>
+                    <input type="date" name="target_date" class="target_date" value={{ @$target_date }}>
                     <div>
                         <label>身長</label>
                     </div>
                     <div>
                         <input class="report_value" name="height" type="number" id="height"
-                            value={{ @$physicalinformation->height }}>
+                            value={{ @$physicalinformation->HEIGHT }}>
                         <label>cm</label>
                     </div>
                     <div>
@@ -22,7 +22,7 @@
                     </div>
                     <div>
                         <input class="report_value" name="weight" type="number" id="weight"
-                            value={{ @$physicalinformation->weight }}>
+                            value={{ @$physicalinformation->WEIGHT }}>
                         <label>kg</label>
                     </div>
                     <div>
@@ -30,7 +30,7 @@
                     </div>
                     <div>
                         <input class="report_value" name="body_fat_percentage" type="number" id="body_fat_percentage"
-                            value={{ @$physicalinformation->body_fat_percentage }}>
+                            value={{ @$physicalinformation->BODY_FAT_PERCENTAGE }}>
                         <label>%</label>
                     </div>
                     <div>
@@ -38,7 +38,7 @@
                     </div>
                     <div>
                         <input class="report_value" name="muscle_mass" type="number" id="muscle_mass"
-                            value={{ @$physicalinformation->muscle_mass }}>
+                            value={{ @$physicalinformation->MUSCLE_MASS }}>
                         <label>kg</label>
                     </div>
                     <div>

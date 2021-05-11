@@ -15,12 +15,12 @@ class MealReportInformation extends Model
      * @var array
      */
     protected $fillable = [
-        'user_id',
-        'meal_report_information_id',
-        'target_date',
-        'created_at',
-        'updated_at',
-        'is_deleted',
+        'USER_ID',
+        'MEAL_REPORT_INFORMATION_ID',
+        'TARGET_DATE',
+        'CREATED_AT',
+        'UPDATED_AT',
+        'IS_DELETED',
     ];
 
         
@@ -51,25 +51,25 @@ class MealReportInformation extends Model
         $mealrepot = array();
         $sql = "
                 SELECT
-                    mri.user_id
-                    , mri.meal_report_information_id
-                    , mri.target_date
-                    , mrid.meal_report_information_detail_id
-                    , mrid.user_report
-                    , mrid.trainner_comment
-                    , mrid.ingestion_calorie
-                    , mrid.meal_image
-                    , mrid.ingestion_time
-                    , mrid.updated_at 
+                    mri.USER_ID
+                    , mri.MEAL_REPORT_INFORMATION_ID
+                    , mri.TARGET_DATE
+                    , mrid.MEAL_REPORT_INFORMATION_DETAIL_ID
+                    , mrid.USER_REPORT
+                    , mrid.TRAINNER_COMMENT
+                    , mrid.INGESTION_CALORIE
+                    , mrid.MEAL_IMAGE
+                    , mrid.INGESTION_TIME
+                    , mrid.UPDATED_AT 
                 FROM
-                    meal_report_information AS mri 
-                    LEFT JOIN meal_report_information_details AS mrid 
-                        on mri.meal_report_information_id = mrid.meal_report_information_id 
+                    MEAL_REPORT_INFORMATION AS mri 
+                    LEFT JOIN MEAL_REPORT_INFORMATION_DETAILS AS mrid 
+                        on mri.MEAL_REPORT_INFORMATION_ID = mrid.MEAL_REPORT_INFORMATION_ID 
                 WHERE
-                    mri.user_id = {$user_id} 
-                    AND mri.target_date = '{$target_date}'
-                    AND mri.is_deleted = 0 
-                    AND mrid.is_deleted = 0
+                    mri.USER_ID = {$user_id} 
+                    AND mri.TARGET_DATE = '{$target_date}'
+                    AND mri.IS_DELETED = 0 
+                    AND mrid.IS_DELETED = 0
         ";
         $mealreport = DB::select($sql);
         return $mealreport;
@@ -85,8 +85,8 @@ class MealReportInformation extends Model
     public static function regist_mealreport($target_date, $user_id, $param = null){
         $mealreport = new MealReportInformation();
         $result = $mealreport->create([
-            'user_id' => $user_id,
-            'target_date' => $target_date,
+            'USER_ID' => $user_id,
+            'TARGET_DATE' => $target_date,
         ]);
         return $result;
     }

@@ -13,17 +13,17 @@ class MealReportInformationDetails extends Model
      * @var array
      */
     protected $fillable = [
-        'meal_report_information_detail_id',
-        'meal_report_information_id',
-        'display_number',
-        'user_report',
-        'trainner_comment',
-        'ingestion_calorie',
-        'meal_image',
-        'ingestion_time',
-        'created_at',
-        'updated_at',
-        'is_deleted',
+        'MEAL_REPORT_INFORMATION_DETAIL_ID',
+        'MEAL_REPORT_INFORMATION_ID',
+        'DISPLAY_NUMBER',
+        'USER_REPORT',
+        'TRAINNER_COMMENT',
+        'INGESTION_CALORIE',
+        'MEAL_IMAGE',
+        'INGESTION_TIME',
+        'CREATED_AT',
+        'UPDATED_AT',
+        'IS_DELETED',
     ];
     
     /**
@@ -37,13 +37,13 @@ class MealReportInformationDetails extends Model
     public static function regist_mealreport_details($param){
         $mealreportdetails = new MealReportInformationDetails();
         $result = $mealreportdetails->create([
-            'meal_report_information_id' => $param['meal_report_information_id'],
-            'display_number' => $param['display_number'],
-            'user_report' => $param['user_report'],
-            'trainner_comment' => $param['trainner_comment'],
-            'ingestion_calorie' => $param['ingestion_calorie'],
-            'meal_image' => $param['meal_image'],
-            'ingestion_time' => $param['ingestion_time'],
+            'MEAL_REPORT_INFORMATION_ID' => $param['meal_report_information_id'],
+            'DISPLAY_NUMBER' => $param['display_number'],
+            'USER_REPORT' => $param['user_report'],
+            'TRAINNER_COMMENT' => $param['trainner_comment'],
+            'INGESTION_CALORIE' => $param['ingestion_calorie'],
+            'MEAL_IMAGE' => $param['meal_image'],
+            'INGESTION_TIME' => $param['ingestion_time'],
         ]);
 
         return $result;
@@ -60,14 +60,14 @@ class MealReportInformationDetails extends Model
         $mealreportdetails = new MealReportInformationDetails();
         $result = $mealreportdetails
             ->where([
-                'meal_report_information_detail_id' => Arr::get($param,'meal_report_information_detail_id'),
+                'MEAL_REPORT_INFORMATION_DETAIL_ID' => Arr::get($param,'meal_report_information_detail_id'),
             ])
             ->update([
-                'user_report' => $param['user_report'],
-                'trainner_comment' => $param['trainner_comment'],
-                'ingestion_calorie' => $param['ingestion_calorie'],
-                'meal_image' => $param['meal_image'],
-                'ingestion_time' => $param['ingestion_time'],
+                'USER_REPORT' => $param['user_report'],
+                'TRAINNER_COMMENT' => $param['trainner_comment'],
+                'INGESTION_CALORIE' => $param['ingestion_calorie'],
+                'MEAL_IMAGE' => $param['meal_image'],
+                'INGESTION_TIME' => $param['ingestion_time'],
             ]);
         return $result;
     }
@@ -82,10 +82,10 @@ class MealReportInformationDetails extends Model
         $mealreportdetails = new MealReportInformationDetails();
         $result = $mealreportdetails
             ->where([
-                'meal_report_information_detail_id' => $meal_report_information_detail_id,
+                'MEAL_REPORT_INFORMATION_DETAIL_ID' => $meal_report_information_detail_id,
             ])
             ->update([
-                'is_deleted' => 1,
+                'IS_DELETED' => 1,
             ]);
         return $result;
     }

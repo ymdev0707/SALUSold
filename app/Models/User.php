@@ -93,14 +93,14 @@ class User extends Authenticatable
             if(!empty($tmp_where)){
                 $tmp_where .= ' AND ';
             }
-            $tmp_where .= 'sex_value = ' . $sex;
+            $tmp_where .= 'SEX_VALUE = ' . $sex;
         }
 
         if(!empty($enrollment_store_id)){
             if(!empty($tmp_where)){
                 $tmp_where .= ' AND ';
             }
-            $tmp_where .= 'enrollment_store_id= ' . $enrollment_store_id;
+            $tmp_where .= 'ENROLLMENT_STORE_ID= ' . $enrollment_store_id;
         }
 
         if(!is_null($enrollment_type)){
@@ -112,7 +112,7 @@ class User extends Authenticatable
                 $enrollment_type = implode(',', $enrollment_type);
             }
             
-            $tmp_where .= 'is_admin_value IN (' . $enrollment_type . ')';
+            $tmp_where .= 'IS_ADMIN_VALUE IN (' . $enrollment_type . ')';
         }
         
         if(!empty($tmp_where)){
@@ -121,57 +121,58 @@ class User extends Authenticatable
         }
         
         $sql = "
-            select 
-                user_id
-                , name
-                , namekana
-                , concat(name, ' / ', namekana) as concatname
-                , sex
-                , sex_value
-                , birth
-                , staff
-                , store_name
-                , store_name
-                , ( 
-                    select
-                        select_item_name 
-                    from
-                        select_item_master 
-                    where
-                        select_item_id = is_admin_value
-                ) as is_admin 
-            from
-                (
-                select
-                    us.id as user_id,
-                    concat(last_name, ' ', first_name) as name,
-                    concat(last_name_kana, ' ', first_name_kana) as namekana, 
-                    ( 
-                        select
-                            select_item_name 
-                        from
-                            select_item_master 
-                        where
-                            select_item_id = us.sex
-                    ) as sex,
-                    us.sex as sex_value,
-                    us.birth as birth,
-                    '' as staff,
-                    sm.store_name,
-                    case 
-                        when ai.administrator_information_id is null 
-                            then 200 
-                        else 201 
-                    end as is_admin_value 
-                from
-                    users as us 
-                    left join administrator_information as ai 
-                        on us.id = ai.user_id 
-                    left join enrollment_store_information as esi 
-                        on esi.user_id = us.id
-                    left join store_master as sm 
-                        on sm.store_id = esi.store_id
-                    ) as tmp
+        SELECT
+            USER_ID
+            , NAME
+            , NAMEKANA
+            , concat(name, ' / ', namekana) AS CONCATNAME
+            , SEX
+            , SEX_VALUE
+            , BIRTH
+            , STAFF
+            , STORE_NAME
+            , STORE_NAME
+            , ( 
+                SELECT
+                    SELECT_ITEM_NAME 
+                FROM
+                    SELECT_ITEM_MASTER 
+                WHERE
+                    SELECT_ITEM_ID = IS_ADMIN_VALUE
+            ) AS IS_ADMIN 
+        FROM
+            ( 
+                SELECT
+                    us.id AS USER_ID
+                    , concat(last_name, ' ', first_name) AS NAME
+                    , concat(last_name_kana, ' ', first_name_kana) AS NAMEKANA
+                    , ( 
+                        SELECT
+                            SELECT_ITEM_NAME 
+                        FROM
+                            SELECT_ITEM_MASTER 
+                        WHERE
+                            SELECT_ITEM_ID = us.sex
+                    ) AS SEX
+                    , us.sex AS SEX_VALUE
+                    , us.birth AS BIRTH
+                    , '' AS STAFF
+                    , sm.STORE_NAME
+                    , CASE 
+                        WHEN ai.ADMINISTRATOR_INFORMATION_ID IS NULL 
+                            THEN 200 
+                        ELSE 201 
+                        END AS IS_ADMIN_VALUE 
+                FROM
+                    users AS us 
+                    LEFT JOIN ADMINISTRATOR_INFORMATION AS ai 
+                        ON us.id = ai.user_id 
+                    LEFT JOIN ENROLLMENT_STORE_INFORMATION AS esi 
+                        ON esi.user_id = us.id 
+                    LEFT JOIN STORE_MASTER AS sm 
+                        ON sm.STORE_ID = esi.STORE_ID
+            ) AS tmp
+    
             {$where}
         ";
         $user_info = DB::select($sql);
