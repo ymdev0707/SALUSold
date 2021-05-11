@@ -2,31 +2,31 @@
     <tbody>
         <tr>
             <th>ユーザーid</th>
-            <td>{{ $user_information->USER_ID }}</td>
+            <td>{{ $user_information->user_id }}</td>
         </tr>
         <tr>
             <th>氏名</th>
-            <td>{{ $user_information->NAME }}</td>
+            <td>{{ $user_information->name }}</td>
         </tr>
         <tr>
             <th>氏名カナ</th>
-            <td>{{ $user_information->NAMEKANA }}</td>
+            <td>{{ $user_information->namekana }}</td>
         </tr>
         <tr>
             <th>生年月日(年齢)</th>
-            <td>{{ $user_information->BIRTH }}</td>
+            <td>{{ $user_information->birth }}</td>
         </tr>
         <tr>
             <th>性別</th>
-            <td>{{ $user_information->SEX }}</td>
+            <td>{{ $user_information->sex }}</td>
         </tr>
         <tr>
             <th>在籍区分</th>
-            <td>{{ $user_information->IS_ADMIN }}</td>
+            <td>{{ $user_information->is_admin }}</td>
         </tr>
         <tr>
             <th>担当</th>
-            <td>{{ $user_information->STAFF }}</td>
+            <td>{{ $user_information->staff }}</td>
         </tr>
         <tr>
             <th>在籍店舗</th>

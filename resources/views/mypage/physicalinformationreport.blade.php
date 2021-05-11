@@ -16,7 +16,6 @@
                 // div#containerの中に追加
                 document.getElementById('report_list').appendChild(clone);
                 var target_date = $('#target_date').val();
-                console.log(target_date);
                 $('.form_target_date').val(target_date);
             });
 
@@ -58,28 +57,28 @@
                         </div>
                         <div>
                             <input class="report_value" name="height" type="number" id="height"
-                                value={{ @$physicalinformation->HEIGHT }}>
+                                value={{ @$physicalinformation->height }}>
                             <label>cm</label>
                         </div>
                         <div>
                             <label>体重</label>
                         </div>
                         <div>
-                            <input class="report_value" name="weight" type="number" id="weight" value={{ @$physicalinformation->WEIGHT }}>
+                            <input class="report_value" name="weight" type="number" id="weight" value={{ @$physicalinformation->weight }}>
                             <label>kg</label>
                         </div>
                         <div>
                             <label>体脂肪率</label>
                         </div>
                         <div>
-                            <input class="report_value" name="body_fat_percentage" type="number" id="body_fat_percentage" value={{ @$physicalinformation->BODY_FAT_PERCENTAGE }}>
+                            <input class="report_value" name="body_fat_percentage" type="number" id="body_fat_percentage" value={{ @$physicalinformation->body_fat_percentage }}>
                             <label>%</label>
                         </div>
                         <div>
                             <label>筋肉量</label>
                         </div>
                         <div>
-                            <input class="report_value" name="muscle_mass" type="number" id="muscle_mass" value={{ @$physicalinformation->MUSCLE_MASS }}>
+                            <input class="report_value" name="muscle_mass" type="number" id="muscle_mass" value={{ @$physicalinformation->muscle_mass }}>
                             <label>kg</label>
                         </div>
                         <div>

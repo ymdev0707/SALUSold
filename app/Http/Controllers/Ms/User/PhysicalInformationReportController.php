@@ -31,7 +31,6 @@ class PhysicalInformationReportController extends MsController
         $physicalinformation = Common::init_physicalinformation($input);
         $tmp_target_date = new DateTime($target_date);
         $param_target_date = $tmp_target_date->format('Ymd');
-
         if ($request->ajax()) {
             // Ajaxである
             // $physicalinformation = json_decode(json_encode($physicalinformation), true);

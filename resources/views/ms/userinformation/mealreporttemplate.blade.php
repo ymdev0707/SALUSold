@@ -27,21 +27,21 @@
                                     <label for="">ユーザーコメント</label>
                                 </div>
                                 <textarea class="report_value" name="user_report" id="user_report" cols="30"
-                                    rows="10">{{ $report->USER_REPORT }}</textarea>
+                                    rows="10">{{ $report->user_report }}</textarea>
                             </div>
                             <div>
                                 <div>
                                     <label for="">トレーナーコメント</label>
                                 </div>
                                 <textarea class="report_value" name="trainner_comment" id="trainner_comment" cols="30"
-                                    rows="10">{{ $report->TRAINNER_COMMENT }}</textarea>
+                                    rows="10">{{ $report->trainner_comment }}</textarea>
                             </div>
                             <div>
                                 <label>摂取カロリー</label>
                             </div>
                             <div>
                                 <input class="report_value" name="ingestion_calorie" type="number"
-                                    id="ingestion_calorie" value={{ $report->INGESTION_CALORIE }}>
+                                    id="ingestion_calorie" value={{ $report->ingestion_calorie }}>
                                 <label>kcal</label>
                             </div>
                             <div>
@@ -49,13 +49,13 @@
                             </div>
                             <div>
                                 <input class="report_value" name="ingestion_time" type="time" id="ingestion_time"
-                                    value={{ $report->INGESTION_TIME }}>
+                                    value={{ $report->ingestion_time }}>
                             </div>
                             <input type="hidden" name="form_target_date" id="form_target_date" class="form_target_date"
                                 value={{ @$target_date }}>
                             <input type="hidden" name="meal_report_information_detail_id"
                                 id="meal_report_information_detail_id"
-                                value={{ $report->MEAL_REPORT_INFORMATION_DETAIL_ID }}>
+                                value={{ $report->meal_report_information_detail_id }}>
                             <div>
                                 <input type="submit" value="削除" formaction="/ms/userinformation/detail/mealreport/delete?user_id={{ $user_id }}&target_date={{ $param_target_date }}" formmethod="POST">
                                 <input type="submit" value="更新" formaction="/ms/userinformation/detail/mealreport/update?user_id={{ $user_id }}&target_date={{ $param_target_date }}" formmethod="POST">

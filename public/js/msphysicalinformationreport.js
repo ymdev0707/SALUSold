@@ -119,10 +119,10 @@ function draw_physical_information_graph(graph_data_physical) {
     var arr_body_fat_percentage = [];
     var arr_muscle_mass = [];
     graph_data_physical.forEach(element => {
-        arr_target_date.push(element.DISP_TARGET_DATE);
-        arr_weight.push(element.WEIGHT);
-        arr_body_fat_percentage.push(element.BODY_FAT_PERCENTAGE);
-        arr_muscle_mass.push(element.MUSCLE_MASS);
+        arr_target_date.push(element.disp_target_date);
+        arr_weight.push(element.weight);
+        arr_body_fat_percentage.push(element.body_fat_percentage);
+        arr_muscle_mass.push(element.muscle_mass);
     });
 
     var ctx = document.getElementById("physical_chart").getContext('2d');

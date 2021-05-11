@@ -72,15 +72,15 @@
             @isset($user_info)
                 @foreach ($user_info as $user)
                     <tr>
-                        <td>{{ $user->USER_ID }}</td>
-                        <td>{{ $user->CONCATNAME }}</td>
-                        <td>{{ $user->BIRTH }}</td>
-                        <td>{{ $user->SEX }}</td>
-                        <td>{{ $user->IS_ADMIN }}</td>
-                        <td>{{ $user->STAFF }}</td>
-                        <td>{{ $user->STORE_NAME }}</td>
+                        <td>{{ $user->user_id }}</td>
+                        <td>{{ $user->concatname }}</td>
+                        <td>{{ $user->birth }}</td>
+                        <td>{{ $user->sex }}</td>
+                        <td>{{ $user->is_admin }}</td>
+                        <td>{{ $user->staff }}</td>
+                        <td>{{ $user->store_name }}</td>
                         <td>
-                            <a href="/ms/userinformation/detail/?user_id={{$user->USER_ID}}" title="詳細">詳細</a>
+                            <a href="/ms/userinformation/detail/?user_id={{$user->user_id}}" title="詳細">詳細</a>
                         </td>
                     </tr>
                 @endforeach    
