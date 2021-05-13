@@ -42,7 +42,7 @@ class MealReportController extends Controller
     public function regist(Request $request){
         // 食事報告を登録する
         $input = $request->input();
-        $target_date = $input['form_target_date'];
+        $target_date = $input['target_date'];
         $user_id = $request->user_id;
         $meal_report_information_id = null;
 

@@ -73,7 +73,6 @@
                                     id="ingestion_calorie">
                                 <label>kcal</label>
                             </div>
-                            <input type="hidden" name="form_target_date" id="form_target_date" class="form_target_date">
                             <input type="hidden" name="trainning_report_information_detail_id"
                                 id="trainning_report_information_detail_id">
                             <div>
@@ -94,7 +93,7 @@
         <button class="add-wrapper">追加</button>
     </div>
 </div>
-<div id="form_template_trainingreport" hidden>
+{{-- <div id="form_template_trainingreport" hidden>
     <form method="post">
         @csrf
         <div id="mealreport-wrapper">
@@ -154,7 +153,7 @@
                     <button type='button' class="add_training" onclick="add_training_item()">+</button>
                 </div>
                 <div>
-                    <label>消費消費カロリー</label>
+                    <label>消費カロリー</label>
                 </div>
                 <div>
                     <input class="report_value" name="ingestion_calorie" type="number" id="ingestion_calorie">
@@ -167,7 +166,7 @@
                     <input class="report_value" name="ingestion_time" type="time" id="ingestion_time">
                 </div>
                 <input type="hidden" name="form_target_date" id="form_target_date" class="form_target_date">
-                <input type="hidden" name="meal_report_information_detail_id" id="meal_report_information_detail_id">
+                <input type="hidden" name="tmeal_report_information_details_id" id="tmeal_report_information_details_id">
                 <div>
                     <input type="submit" value="登録"
                         formaction="/ms/userinformation/detail/trainingreport/regist?user_id={{ $user_id ?? ('' ?? '') }}&target_date={{ $param_target_date ?? '' }}"
@@ -219,4 +218,4 @@
             </tbody>
         </table>
     </template>
-</div>
+</div> --}}

@@ -42,7 +42,6 @@ class TrainingReportController extends Controller
     public function regist(Request $request){
         // トレーニング報告を登録する
         $input = $request->input();
-        Common::debug($input);
         $target_date = $input['form_target_date'];
         $user_id = $request->user_id;
         $training_report_information_id = null;

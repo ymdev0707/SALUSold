@@ -192,6 +192,7 @@
                 </div>
             </div>
         </div>
+        <input type="hidden" name="form_target_date" id="form_target_date" class="form_target_date" value={{ @$target_date }}>
         <input type="hidden" id="report_type" value="{{ @$report_type }}">
         <input type="hidden" id="user_id" value="{{ @$user_id }}">
         <input type="hidden" id="start_date" value="{{ @$start_date }}">

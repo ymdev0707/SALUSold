@@ -51,10 +51,8 @@
                                 <input class="report_value" name="ingestion_time" type="time" id="ingestion_time"
                                     value={{ $report->ingestion_time }}>
                             </div>
-                            <input type="hidden" name="form_target_date" id="form_target_date" class="form_target_date"
-                                value={{ @$target_date }}>
-                            <input type="hidden" name="meal_report_information_detail_id"
-                                id="meal_report_information_detail_id"
+                            <input type="hidden" name="meal_report_information_details_id"
+                                id="meal_report_information_details_id"
                                 value={{ $report->meal_report_information_details_id }}>
                             <div>
                                 <input type="submit" value="削除" formaction="/ms/userinformation/detail/mealreport/delete?user_id={{ $user_id }}&target_date={{ $param_target_date }}" formmethod="POST">
