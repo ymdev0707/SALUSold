@@ -3,7 +3,7 @@
         <h4 class="mb-3 border-bottom">食事報告</h4>
     </div>
     <input type="date" class="target_date" value={{ @$target_date }}>
-    <div id="report_list">
+    <div id="report_list_meal">
         @if (isset($mealreport))
             @foreach ($mealreport as $key => $report)
                 <form method="post">
@@ -33,8 +33,8 @@
                                 <div>
                                     <label for="">トレーナーコメント</label>
                                 </div>
-                                <textarea class="report_value" name="trainer_comment" id="trainer_comment" cols="30"
-                                    rows="10">{{ $report->trainer_comment }}</textarea>
+                                <textarea class="report_value" name="trainer_report" id="trainer_report" cols="30"
+                                    rows="10">{{ $report->trainer_report }}</textarea>
                             </div>
                             <div>
                                 <label>摂取カロリー</label>
@@ -55,7 +55,7 @@
                                 value={{ @$target_date }}>
                             <input type="hidden" name="meal_report_information_detail_id"
                                 id="meal_report_information_detail_id"
-                                value={{ $report->meal_report_information_detail_id }}>
+                                value={{ $report->meal_report_information_details_id }}>
                             <div>
                                 <input type="submit" value="削除" formaction="/ms/userinformation/detail/mealreport/delete?user_id={{ $user_id }}&target_date={{ $param_target_date }}" formmethod="POST">
                                 <input type="submit" value="更新" formaction="/ms/userinformation/detail/mealreport/update?user_id={{ $user_id }}&target_date={{ $param_target_date }}" formmethod="POST">
@@ -67,6 +67,6 @@
         @endif
     </div>
     <div>
-        <button id="add-wrapper">追加</button>
+        <button class="add-wrapper">追加</button>
     </div>
 </div>

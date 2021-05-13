@@ -36,7 +36,7 @@ class MealReportInformation extends Model
         if(empty($result)){
             return false;
         }else{
-            return $result->MEAL_REPORT_INFORMATION_ID;
+            return $result->meal_report_information_id;
         }
     }
 

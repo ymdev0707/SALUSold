@@ -6,11 +6,8 @@
     {{-- この場所に画面毎(ヘッダ位置)のjsを記述する --}}
     <script type="text/javascript">
         window.onload = function() {
-            // レポートのテンプレートを読み込む
-            // $("#mealreport-wrapper").load("/template/report/mealreport-wrapper.blade.php");
-
             // 追加ボタン押下時にレポートを追加する
-            $('#add-wrapper').on('click', function() {
+            $('.add-wrapper').on('click', function() {
                 // template要素を取得
                 var template = document.getElementById('form_template');
                 // template要素の内容を複製
@@ -86,7 +83,7 @@
                                 <div>
                                     <label for="">トレーナーコメント</label>
                                 </div>
-                                <textarea class="report_value" name="trainer_comment" id="trainer_comment" cols="30" rows="10">{{ $report->trainer_comment }}</textarea>
+                                <textarea class="report_value" name="trainer_comment" id="trainer_comment" cols="30" rows="10">{{ $report->trainer_report }}</textarea>
                             </div>
                             <div>
                                 <label>摂取カロリー</label>
