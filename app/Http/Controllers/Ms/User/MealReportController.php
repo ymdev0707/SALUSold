@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Ms\User;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Auth;
 use App\Models\MealReportInformation;
 use App\Models\MealReportInformationDetails;
 use App\Functions\Common\Common;
@@ -44,13 +43,13 @@ class MealReportController extends Controller
         // 食事報告を登録する
         $input = $request->input();
         $target_date = $input['form_target_date'];
-        $user_id = Auth::id();
+        $user_id = $request->user_id;
         $meal_report_information_id = null;
 
         DB::beginTransaction();
         try {
             // 食事報告情報を登録
-            $judge_result = MealReportInformation::judge_regist_process($target_date, $request->user_id);
+            $judge_result = MealReportInformation::judge_regist_process($target_date, $user_id);
             if(!$judge_result){
                 $meal_report_information = MealReportInformation::regist_mealreport($target_date, $user_id);
                 $meal_report_information_id = $meal_report_information->id;
@@ -80,7 +79,7 @@ class MealReportController extends Controller
             'physicalinformation' => $init_report_data['physicalinformation'],
             'target_date' => $init_report_data['target_date'],
             'param_target_date' => $init_report_data['param_target_date'],
-            'user_id' => $request->user_id,
+            'user_id' => $user_id,
             'report_type' => 'mealreport',
             'user_information' => $init_report_data['user_information'],
             'mealreport' => $init_report_data['mealreport'],
@@ -167,7 +166,7 @@ class MealReportController extends Controller
         $target_date = Common::get_target_date($input);
 
         $user_information = current(User::get_users($input));
-        $mealreport = MealReportInformation::get_mealreprot($target_date, $request->user_id);
+        $mealreport = MealReportInformation::get_mealreport($target_date, $request->user_id);
 
         // 身体情報取得
         $physicalinformation = Common::init_physicalinformation($input);

@@ -4,9 +4,6 @@ namespace App\Http\Controllers\Ms\User;
 
 use App\Http\Controllers\MsController;
 use Illuminate\Http\Request;
-use Auth;
-use App\Models\MealReportInformation;
-use App\Models\MealReportInformationDetails;
 use App\Models\PhysicalInformation;
 use App\Functions\Common;
 use App\Models\User;

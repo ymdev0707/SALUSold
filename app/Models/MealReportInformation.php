@@ -32,7 +32,7 @@ class MealReportInformation extends Model
      * @return void
      */
     public static function judge_regist_process($target_date, $user_id){
-        $result = current(self::get_mealreprot($target_date, $user_id));
+        $result = current(self::get_mealreport($target_date, $user_id));
         if(empty($result)){
             return false;
         }else{
@@ -41,13 +41,13 @@ class MealReportInformation extends Model
     }
 
     /**
-     * get_mealreprot
+     * get_mealreport
      *
      * @param  mixed $target_date
      * @param  mixed $user_id
      * @return array $mealrepot
      */
-    public static function get_mealreprot($target_date, $user_id){
+    public static function get_mealreport($target_date, $user_id){
         $mealrepot = array();
         $sql = "
                 SELECT
