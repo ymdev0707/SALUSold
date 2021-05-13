@@ -4,9 +4,8 @@ namespace App\Http\Controllers\Ms\User;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Auth;
-use App\Models\MealReportInformation;
-use App\Models\MealReportInformationDetails;
+use App\Models\TrainingReportInformation;
+use App\Models\TrainingReportInformationDetails;
 use App\Functions\Common\Common;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Arr;
@@ -30,7 +29,7 @@ class TrainingReportController extends Controller
             'user_id' => $request->user_id,
             'report_type' => 'trainingreport',
             'user_information' => $init_report_data['user_information'],
-            'mealreport' => $init_report_data['mealreport'],
+            'trainingreport' => $init_report_data['trainingreport'],
         ]);
     }
         
@@ -41,34 +40,34 @@ class TrainingReportController extends Controller
      * @return void
      */
     public function regist(Request $request){
-        // 食事報告を登録する
+        // トレーニング報告を登録する
         $input = $request->input();
         $target_date = $input['form_target_date'];
-        $user_id = Auth::id();
-        $meal_report_information_id = null;
+        $user_id = $request->user_id;
+        $training_report_information_id = null;
 
         DB::beginTransaction();
         try {
-            // 食事報告情報を登録
-            $judge_result = MealReportInformation::judge_regist_process($target_date, $request->user_id);
+            // トレーニング報告情報を登録
+            $judge_result = TrainingReportInformation::judge_regist_process($target_date, $user_id);
             if(!$judge_result){
-                $meal_report_information = MealReportInformation::regist_mealreport($target_date, $user_id);
-                $meal_report_information_id = $meal_report_information->id;
+                $training_report_information = TrainingReportInformation::regist_trainingreport($target_date, $user_id);
+                $training_report_information_id = $training_report_information->id;
             }else{
-                $meal_report_information_id = $judge_result;
+                $training_report_information_id = $judge_result;
             }
             
-            // 食事報告情報詳細を登録
+            // トレーニング報告情報詳細を登録
             $param = array(
-                'meal_report_information_id' => $meal_report_information_id,
+                'training_report_information_id' => $training_report_information_id,
                 'display_number' => 0,
                 'user_report' => Arr::get($input,'user_report'),
                 'trainer_report' => Arr::get($input,'trainer_report'),
                 'ingestion_calorie' => Arr::get($input,'ingestion_calorie'),
-                'meal_image' => Arr::get($input,'meal_image'),
+                'training_image' => Arr::get($input,'training_image'),
                 'ingestion_time' => Arr::get($input,'ingestion_time'),
             );
-            $meal_report_information = MealReportInformationDetails::regist_mealreport_details($param);
+            $training_report_information = TrainingReportInformationDetails::regist_trainingreport_details($param);
             DB::commit();
         } catch (\Exception $e) {
             Common::debug($e);
@@ -81,9 +80,9 @@ class TrainingReportController extends Controller
             'target_date' => $init_report_data['target_date'],
             'param_target_date' => $init_report_data['param_target_date'],
             'user_id' => $request->user_id,
-            'report_type' => 'mealreport',
+            'report_type' => 'trainingreport',
             'user_information' => $init_report_data['user_information'],
-            'mealreport' => $init_report_data['mealreport'],
+            'trainingreport' => $init_report_data['trainingreport'],
         ]);
     }
     
@@ -97,7 +96,7 @@ class TrainingReportController extends Controller
         $input = $request->input();
         DB::beginTransaction();
         try {
-            $result = MealReportInformationDetails::update_mealreport_details($input);
+            $result = TrainingReportInformationDetails::update_trainingreport_details($input);
             DB::commit();
         } catch (\Exception $e) {
             Common::debug($e);
@@ -110,9 +109,9 @@ class TrainingReportController extends Controller
             'target_date' => $init_report_data['target_date'],
             'param_target_date' => $init_report_data['param_target_date'],
             'user_id' => $request->user_id,
-            'report_type' => 'mealreport',
+            'report_type' => 'trainingreport',
             'user_information' => $init_report_data['user_information'],
-            'mealreport' => $init_report_data['mealreport'],
+            'trainingreport' => $init_report_data['trainingreport'],
         ]);
     }
 
@@ -126,7 +125,7 @@ class TrainingReportController extends Controller
         DB::beginTransaction();
         $input = $request->input();
         try {
-            $result = MealReportInformationDetails::delete_mealreport_details(Arr::get($input,'meal_report_information_details_id'));
+            $result = TrainingReportInformationDetails::delete_trainingreport_details(Arr::get($input,'training_report_information_details_id'));
             DB::commit();
         } catch (\Exception $e) {
             Common::debug($e);
@@ -139,9 +138,9 @@ class TrainingReportController extends Controller
             'target_date' => $init_report_data['target_date'],
             'param_target_date' => $init_report_data['param_target_date'],
             'user_id' => $request->user_id,
-            'report_type' => 'mealreport',
+            'report_type' => 'trainingreport',
             'user_information' => $init_report_data['user_information'],
-            'mealreport' => $init_report_data['mealreport'],
+            'trainingreport' => $init_report_data['trainingreport'],
         ]);
     }
     
@@ -167,7 +166,7 @@ class TrainingReportController extends Controller
         $target_date = Common::get_target_date($input);
 
         $user_information = current(User::get_users($input));
-        $mealreport = MealReportInformation::get_mealreprot($target_date, $request->user_id);
+        $trainingreport = TrainingReportInformation::get_trainingreport($target_date, $request->user_id);
 
         // 身体情報取得
         $physicalinformation = Common::init_physicalinformation($input);
@@ -179,9 +178,9 @@ class TrainingReportController extends Controller
             'target_date' => $target_date,
             'param_target_date' => $param_target_date,
             'user_id' => $request->user_id,
-            'report_type' => 'mealreport',
+            'report_type' => 'trainingreport',
             'user_information' => $user_information,
-            'mealreport' => $mealreport,
+            'trainingreport' => $trainingreport,
         );
 
         return $init_report_data;

@@ -9,7 +9,6 @@ use App\Models\PhysicalInformation;
 use Illuminate\Support\Arr;
 use DateTime;
 use Illuminate\Support\Facades\DB;
-use Auth;
 use App\Models\User;
 
 class PhysicalInformationReportController extends MsController

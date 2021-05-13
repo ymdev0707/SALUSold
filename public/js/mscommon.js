@@ -70,19 +70,23 @@ window.onload = function () {
             case 'trainingreport':
                 template_name = 'form_template_trainingreport';
                 report_list_name = 'report_list_training';
+                var template = document.getElementById(template_name);
+                // template要素の内容を複製
+                var clone = template.cloneNode(true);
+                // hiddenを削除する
+                clone.removeAttribute('hidden');
                 break;
             case 'mealreport':
                 template_name = 'form_template_mealreport';
                 report_list_name = 'report_list_meal';
+                var template = document.getElementById(template_name);
+                // template要素の内容を複製
+                var clone = template.content.cloneNode(true);
                 break;
             default:
                 break;
         }
-        console.log("aaaaaaaaa");
-        console.log(template_name);
-        var template = document.getElementById(template_name);
-        // template要素の内容を複製
-        var clone = template.content.cloneNode(true);
+        
         // div#containerの中に追加
         document.getElementById(report_list_name).appendChild(clone);
         var target_date = $('#target_date').val();
@@ -90,11 +94,14 @@ window.onload = function () {
     });
     
     // 追加ボタン押下時にトレーニング報告内容を追加する
-    $('#add_training').on('click', function() {
+    $('.add_training').on('click', function(e) {
+        console.log(e.currentTarget);
         // template要素を取得
         var template = document.getElementById('training_template');
         // template要素の内容を複製
-        var clone = template.content.cloneNode(true);
+        var clone = template.cloneNode(true);
+        // hiddenを削除する
+        clone.removeAttribute('hidden');
         // div#containerの中に追加
         document.getElementById('training_set').appendChild(clone);
         var target_date = $('#target_date').val();
@@ -190,4 +197,11 @@ function preview_image(obj) {
         document.getElementById('preview').src = fileReader.result;
     });
     fileReader.readAsDataURL(obj.files[0]);
+}
+
+function add_training_item(){
+    var parents = event.target.closest('#form_template_trainingreport');
+    var tt = parents.childElementCount;
+    // parents.getElementById('training_set').appendChild(clone);
+    console.log(parents);
 }
