@@ -54,9 +54,9 @@ class MealReportInformation extends Model
                     mri.user_id
                     , mri.meal_report_information_id
                     , mri.target_date
-                    , mrid.meal_report_information_detail_id
+                    , mrid.meal_report_information_details_id
                     , mrid.user_report
-                    , mrid.trainner_comment
+                    , mrid.trainer_report
                     , mrid.ingestion_calorie
                     , mrid.meal_image
                     , mrid.ingestion_time

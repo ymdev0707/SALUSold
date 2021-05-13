@@ -73,7 +73,7 @@
                     <div>
                         <label for="">トレーナーコメント</label>
                     </div>
-                    <textarea class="report_value" name="trainner_comment" id="trainner_comment" cols="30" rows="10"></textarea>
+                    <textarea class="report_value" name="trainer_comment" id="trainer_comment" cols="30" rows="10"></textarea>
                 </div>
                 <div>
                     <label>摂取カロリー</label>
@@ -98,7 +98,7 @@
         </div>
     </form>
 </template>
-<template id="trainningreport_form_template">
+<template id="trainingreport_form_template">
     <form method="post">
         @csrf
         <div id="mealreport-wrapper">
@@ -125,10 +125,10 @@
                     <div>
                         <label for="">トレーナーコメント</label>
                     </div>
-                    <textarea class="report_value" name="trainner_comment" id="trainner_comment" cols="30"
+                    <textarea class="report_value" name="trainer_comment" id="trainer_comment" cols="30"
                         rows="10"></textarea>
                 </div>
-                <div id="trainning_set">
+                <div id="training_set">
                     <table>
                         <tbody>
                             <tr>
@@ -167,7 +167,7 @@
                     </table>
                 </div>
                 <div>
-                    <button type='button' id="add_trainning">+</button>
+                    <button type='button' id="add_training">+</button>
                 </div>
                 <div>
                     <label>摂取カロリー</label>
@@ -192,7 +192,7 @@
         </div>
     </form>
 </template>
-<template id="trainning_template">
+<template id="training_template">
     <table>
         <tbody>
             <tr>

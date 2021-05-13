@@ -13,11 +13,11 @@ class MealReportInformationDetails extends Model
      * @var array
      */
     protected $fillable = [
-        'meal_report_information_detail_id',
+        'meal_report_information_details_id',
         'meal_report_information_id',
         'display_number',
         'user_report',
-        'trainner_comment',
+        'trainer_report',
         'ingestion_calorie',
         'meal_image',
         'ingestion_time',
@@ -40,7 +40,7 @@ class MealReportInformationDetails extends Model
             'meal_report_information_id' => $param['meal_report_information_id'],
             'display_number' => $param['display_number'],
             'user_report' => $param['user_report'],
-            'trainner_comment' => $param['trainner_comment'],
+            'trainer_report' => $param['trainer_report'],
             'ingestion_calorie' => $param['ingestion_calorie'],
             'meal_image' => $param['meal_image'],
             'ingestion_time' => $param['ingestion_time'],
@@ -60,11 +60,11 @@ class MealReportInformationDetails extends Model
         $mealreportdetails = new MealReportInformationDetails();
         $result = $mealreportdetails
             ->where([
-                'meal_report_information_detail_id' => Arr::get($param,'meal_report_information_detail_id'),
+                'meal_report_information_details_id' => Arr::get($param,'meal_report_information_details_id'),
             ])
             ->update([
                 'user_report' => $param['user_report'],
-                'trainner_comment' => $param['trainner_comment'],
+                'trainer_report' => $param['trainer_report'],
                 'ingestion_calorie' => $param['ingestion_calorie'],
                 'meal_image' => $param['meal_image'],
                 'ingestion_time' => $param['ingestion_time'],
@@ -78,11 +78,11 @@ class MealReportInformationDetails extends Model
      * @param  mixed $user_id
      * @return void
      */
-    public static function delete_mealreport_details($meal_report_information_detail_id){
+    public static function delete_mealreport_details($meal_report_information_details_id){
         $mealreportdetails = new MealReportInformationDetails();
         $result = $mealreportdetails
             ->where([
-                'meal_report_information_detail_id' => $meal_report_information_detail_id,
+                'meal_report_information_details_id' => $meal_report_information_details_id,
             ])
             ->update([
                 'is_deleted' => 1,

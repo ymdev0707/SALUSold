@@ -82,7 +82,7 @@
 
         /*選択されているタブのコンテンツのみを表示*/
         #mealreport:checked~#mealreport_content,
-        #trainningreport:checked~#trainningreport_content,
+        #trainingreport:checked~#trainingreport_content,
         #physicalinformation:checked~#physicalinformation_content {
             display: block;
         }
@@ -168,10 +168,10 @@
                 {{ @$report_type == 'mealreport' ? 'checked="checked"' : '' }}>
             <label id="mealreport" class="tab_item" for="mealreport"><a class="link"
                     href="/ms/userinformation/detail/mealreport?user_id={{ $user_id }}">食事報告</a></label>
-            <input id="trainningreport" type="radio" name="tab_item"
-                {{ @$report_type == 'trainningreport' ? 'checked="checked"' : '' }}>
-            <label id="trainningreport" class="tab_item" for="trainningreport"><a class="link"
-                    href="/ms/userinformation/detail/trainningreport?user_id={{ $user_id }}">トレーニング報告</a></label>
+            <input id="trainingreport" type="radio" name="tab_item"
+                {{ @$report_type == 'trainingreport' ? 'checked="checked"' : '' }}>
+            <label id="trainingreport" class="tab_item" for="trainingreport"><a class="link"
+                    href="/ms/userinformation/detail/trainingreport?user_id={{ $user_id }}">トレーニング報告</a></label>
             <input id="physicalinformation" type="radio" name="tab_item"
                 {{ @$report_type == 'physicalinformationreport' ? 'checked="checked"' : '' }}>
             <label id="physicalinformation" class="tab_item" for="physicalinformation"><a class="link"
@@ -181,9 +181,9 @@
                     @include("ms.userinformation.mealreporttemplate")
                 </div>
             </div>
-            <div class="tab_content" id="trainningreport_content">
+            <div class="tab_content" id="trainingreport_content">
                 <div class="tab_content_description">
-                    @include("ms.userinformation.trainningreporttemplate")
+                    @include("ms.userinformation.trainingreporttemplate")
                 </div>
             </div>
             <div class="tab_content" id="physicalinformation_content">

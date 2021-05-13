@@ -14,7 +14,7 @@ use DateTime;
 use App\Models\User;
 use Symfony\Component\ErrorHandler\Debug;
 
-class TrainningReportController extends Controller
+class TrainingReportController extends Controller
 {
     /**
      * index
@@ -28,7 +28,7 @@ class TrainningReportController extends Controller
             'target_date' => $init_report_data['target_date'],
             'param_target_date' => $init_report_data['param_target_date'],
             'user_id' => $request->user_id,
-            'report_type' => 'trainningreport',
+            'report_type' => 'trainingreport',
             'user_information' => $init_report_data['user_information'],
             'mealreport' => $init_report_data['mealreport'],
         ]);
@@ -63,7 +63,7 @@ class TrainningReportController extends Controller
                 'meal_report_information_id' => $meal_report_information_id,
                 'display_number' => 0,
                 'user_report' => Arr::get($input,'user_report'),
-                'trainner_comment' => Arr::get($input,'trainner_comment'),
+                'trainer_report' => Arr::get($input,'trainer_report'),
                 'ingestion_calorie' => Arr::get($input,'ingestion_calorie'),
                 'meal_image' => Arr::get($input,'meal_image'),
                 'ingestion_time' => Arr::get($input,'ingestion_time'),
@@ -126,7 +126,7 @@ class TrainningReportController extends Controller
         DB::beginTransaction();
         $input = $request->input();
         try {
-            $result = MealReportInformationDetails::delete_mealreport_details(Arr::get($input,'meal_report_information_detail_id'));
+            $result = MealReportInformationDetails::delete_mealreport_details(Arr::get($input,'meal_report_information_details_id'));
             DB::commit();
         } catch (\Exception $e) {
             Common::debug($e);

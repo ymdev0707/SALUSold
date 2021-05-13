@@ -51,13 +51,13 @@
             });
 
             // 追加ボタン押下時にトレーニング報告内容を追加する
-            $('#add_trainning').on('click', function() {
+            $('#add_training').on('click', function() {
                 // template要素を取得
-                var template = document.getElementById('trainning_template');
+                var template = document.getElementById('training_template');
                 // template要素の内容を複製
                 var clone = template.content.cloneNode(true);
                 // div#containerの中に追加
-                document.getElementById('trainning_set').appendChild(clone);
+                document.getElementById('training_set').appendChild(clone);
                 var target_date = $('#target_date').val();
                 $('.form_target_date').val(target_date);
             });
@@ -127,8 +127,8 @@
                                 <div>
                                     <label for="">トレーナーコメント</label>
                                 </div>
-                                <textarea class="report_value" name="trainner_comment" id="trainner_comment" cols="30"
-                                    rows="10">{{ $report->trainner_comment }}</textarea>
+                                <textarea class="report_value" name="trainer_comment" id="trainer_comment" cols="30"
+                                    rows="10">{{ $report->trainer_comment }}</textarea>
                             </div>
                             <div>
                                 <label>摂取カロリー</label>
@@ -161,7 +161,7 @@
         </div>
         <div>
             <button id="add-wrapper">追加</button>
-            <button type='button' id="add_trainning">+</button>
+            <button type='button' id="add_training">+</button>
         </div>
     </div>
     </div>
@@ -192,10 +192,10 @@
                         <div>
                             <label for="">トレーナーコメント</label>
                         </div>
-                        <textarea class="report_value" name="trainner_comment" id="trainner_comment" cols="30"
+                        <textarea class="report_value" name="trainer_comment" id="trainer_comment" cols="30"
                             rows="10"></textarea>
                     </div>
-                    <div id="trainning_set">
+                    <div id="training_set">
                         <table>
                             <tbody>
                                 <tr>
@@ -234,7 +234,7 @@
                         </table>
                     </div>
                     <div>
-                        <button type='button' id="add_trainning">+</button>
+                        <button type='button' id="add_training">+</button>
                     </div>
                     <div>
                         <label>摂取カロリー</label>
@@ -259,7 +259,7 @@
             </div>
         </form>
     </template>
-    <template id="trainning_template">
+    <template id="training_template">
         <table>
             <tbody>
                 <tr>

@@ -73,7 +73,7 @@ class MealReportController extends Controller
                 'meal_report_information_id' => $meal_report_information_id,
                 'display_number' => 0,
                 'user_report' => Arr::get($input,'user_report'),
-                'trainner_comment' => Arr::get($input,'trainner_comment'),
+                'trainer_report' => Arr::get($input,'trainer_report'),
                 'ingestion_calorie' => Arr::get($input,'ingestion_calorie'),
                 'meal_image' => Arr::get($input,'meal_image'),
                 'ingestion_time' => Arr::get($input,'ingestion_time'),
@@ -119,7 +119,7 @@ class MealReportController extends Controller
         DB::beginTransaction();
         $input = $request->input();
         try {
-            $result = MealReportInformationDetails::delete_mealreport_details(Arr::get($input,'meal_report_information_detail_id'));
+            $result = MealReportInformationDetails::delete_mealreport_details(Arr::get($input,'meal_report_information_details_id'));
             DB::commit();
             $target_date = new DateTime($input['form_target_date']);
             $target_date = $target_date->format('Ymd');

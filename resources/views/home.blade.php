@@ -55,7 +55,7 @@
         <ul>
             <li><a id="home" href="home">管理記録</a></li>
             <li><a id="fat" href="fat">体重管理</a></li>
-            <li><a id="trainning" href="trainning">運動報告</a></li>
+            <li><a id="training" href="training">運動報告</a></li>
             <li><a id="eat" href="eat">食事報告</a></li>
             <li><a id="profile" href="profile">プロフィール</a></li>
         </ul>

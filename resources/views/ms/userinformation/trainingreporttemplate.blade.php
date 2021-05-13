@@ -21,10 +21,10 @@
                                 <div>
                                     <label for="">トレーナーコメント</label>
                                 </div>
-                                <textarea class="report_value" name="trainner_comment" id="trainner_comment" cols="30"
+                                <textarea class="report_value" name="trainer_comment" id="trainer_comment" cols="30"
                                     rows="10"></textarea>
                             </div>
-                            <div id="trainning_set">
+                            <div id="training_set">
                                 <table>
                                     <tbody>
                                         <tr>
@@ -63,7 +63,7 @@
                                 </table>
                             </div>
                             <div>
-                                <button type='button' id="add_trainning">+</button>
+                                <button type='button' id="add_training">+</button>
                             </div>
                             <div>
                                 <label>消費カロリー</label>
@@ -90,6 +90,6 @@
     </div>
     <div>
         <button id="add-tr-wrapper">追加</button>
-        <button type='button' id="add_trainning">+</button>
+        <button type='button' id="add_training">+</button>
     </div>
 </div>

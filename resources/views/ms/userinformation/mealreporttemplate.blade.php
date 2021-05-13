@@ -33,8 +33,8 @@
                                 <div>
                                     <label for="">トレーナーコメント</label>
                                 </div>
-                                <textarea class="report_value" name="trainner_comment" id="trainner_comment" cols="30"
-                                    rows="10">{{ $report->trainner_comment }}</textarea>
+                                <textarea class="report_value" name="trainer_comment" id="trainer_comment" cols="30"
+                                    rows="10">{{ $report->trainer_comment }}</textarea>
                             </div>
                             <div>
                                 <label>摂取カロリー</label>

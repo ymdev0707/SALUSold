@@ -49,10 +49,10 @@ Route::post('/ms/userinformation/detail/mealreport/update', 'Ms\User\MealReportC
 Route::post('/ms/userinformation/detail/mealreport/delete', 'Ms\User\MealReportController@delete');
 
 // トレーニング報告
-Route::post('/ms/userinformation/detail/trainningreport/', 'Ms\User\TrainningReportController@index');
-Route::post('/ms/userinformation/detail/trainningreport/regist', 'Ms\User\TrainningReportController@regist');
-Route::post('/ms/userinformation/detail/trainningreport/update', 'Ms\User\TrainningReportController@update');
-Route::post('/ms/userinformation/detail/trainningreport/delete', 'Ms\User\TrainningReportController@delete');
+Route::post('/ms/userinformation/detail/trainingreport/', 'Ms\User\TrainingReportController@index');
+Route::post('/ms/userinformation/detail/trainingreport/regist', 'Ms\User\TrainingReportController@regist');
+Route::post('/ms/userinformation/detail/trainingreport/update', 'Ms\User\TrainingReportController@update');
+Route::post('/ms/userinformation/detail/trainingreport/delete', 'Ms\User\TrainingReportController@delete');
 
 // 身体情報報告
 Route::post('/ms/userinformation/detail/physicalinformationreport/', 'Ms\User\PhysicalInformationReportController@index');
@@ -80,7 +80,7 @@ Route::middleware('auth')->group(function(){
     Route::get('/mypage/mealreport/regist', 'Mypage\Report\MealReportController@regist');
 
     // トレーニング報告
-    Route::get('/mypage/trainningreport', 'Mypage\Report\TrainningReportController@index');
+    Route::get('/mypage/trainingreport', 'Mypage\Report\TrainingReportController@index');
     
     // 身体情報報告
     Route::get('/mypage/physicalinformationreport', 'Mypage\Report\PhysicalInformationReportController@index');
@@ -101,7 +101,7 @@ Route::middleware('auth')->group(function(){
     // 食事報告
     Route::get('/ms/userinformation/detail/mealreport/', 'Ms\User\MealReportController@index');
     // トレーニング報告
-    Route::get('/ms/userinformation/detail/trainningreport/', 'Ms\User\TrainningReportController@index');
+    Route::get('/ms/userinformation/detail/trainingreport/', 'Ms\User\TrainingReportController@index');
     // 身体情報報告
     Route::get('/ms/userinformation/detail/physicalinformationreport/', 'Ms\User\PhysicalInformationReportController@index');
 });

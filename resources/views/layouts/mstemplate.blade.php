@@ -11,7 +11,7 @@
                     <a class="nav-link" href="/ms/userinformation">ユーザ管理</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/ms/trainnerinformation">トレーナー管理</a>
+                    <a class="nav-link" href="/ms/trainerinformation">トレーナー管理</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/ms/outputdata">各種データ出力</a>
