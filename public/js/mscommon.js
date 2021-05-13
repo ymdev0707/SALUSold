@@ -60,36 +60,43 @@ window.onload = function () {
     draw_graph_date(default_start_date, default_end_date);
 
     // 追加ボタン押下時にレポートを追加する
-    $('#add-wrapper').on('click', function () {
+    $('.add-wrapper').on('click', function () {
         // template要素を取得
-        var template = document.getElementById('form_template');
+        var report_type = $('#report_type').val();
+        var template_name = '';
+        var report_list_name = '';
+
+        switch (report_type) {
+            case 'trainingreport':
+                template_name = 'form_template_trainingreport';
+                report_list_name = 'report_list_training';
+                break;
+            case 'mealreport':
+                template_name = 'form_template_mealreport';
+                report_list_name = 'report_list_meal';
+                break;
+            default:
+                break;
+        }
+        console.log("aaaaaaaaa");
+        console.log(template_name);
+        var template = document.getElementById(template_name);
         // template要素の内容を複製
         var clone = template.content.cloneNode(true);
         // div#containerの中に追加
-        document.getElementById('report_list').appendChild(clone);
+        document.getElementById(report_list_name).appendChild(clone);
         var target_date = $('#target_date').val();
         $('.form_target_date').val(target_date);
     });
     
-    $('#add-tr-wrapper').on('click', function () {
-        // template要素を取得
-        var template = document.getElementById('form_template');
-        // template要素の内容を複製
-        var clone = template.content.cloneNode(true);
-        // div#containerの中に追加
-        document.getElementById('report_list').appendChild(clone);
-        var target_date = $('#target_date').val();
-        $('.form_target_date').val(target_date);
-    });
-
     // 追加ボタン押下時にトレーニング報告内容を追加する
-    $('#add_trainning').on('click', function() {
+    $('#add_training').on('click', function() {
         // template要素を取得
-        var template = document.getElementById('trainning_template');
+        var template = document.getElementById('training_template');
         // template要素の内容を複製
         var clone = template.content.cloneNode(true);
         // div#containerの中に追加
-        document.getElementById('trainning_set').appendChild(clone);
+        document.getElementById('training_set').appendChild(clone);
         var target_date = $('#target_date').val();
         $('.form_target_date').val(target_date);
     });

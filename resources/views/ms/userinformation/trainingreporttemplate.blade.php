@@ -3,7 +3,7 @@
         <h4 class="mb-3 border-bottom">トレーニング報告</h4>
     </div>
     <input type="date" id="target_date" value={{ $target_date }}>
-    <div id="report_list">
+    <div id="report_list_training">
         @if (isset($mealreport))
             @foreach ($mealreport as $key => $report)
                 <form method="post">
@@ -89,7 +89,7 @@
         @endif
     </div>
     <div>
-        <button id="add-tr-wrapper">追加</button>
+        <button class="add-wrapper">追加</button>
         <button type='button' id="add_training">+</button>
     </div>
 </div>

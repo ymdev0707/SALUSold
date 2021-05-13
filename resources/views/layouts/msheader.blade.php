@@ -18,7 +18,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/locale/ja.js"></script>
     <script src="{{ asset('js/daterangepicker.js') }}" defer></script>
-    <script src="{{ asset('js/msphysicalinformationreport.js') }}" defer></script>
+    <script src="{{ asset('js/mscommon.js') }}" defer></script>
     {{-- <script src="{{ asset('js/mealreport.js') }}" defer></script> --}}
     <script>
     </script>
@@ -46,7 +46,7 @@
     {{-- 個別のjavaScript読み込み --}}
     {{-- @yield('javascript-footer') --}}
 </body>
-<template id="form_template">
+<template id="form_template_mealreport">
     <form method="post">
         @csrf
         <div id="mealreport-wrapper">
@@ -98,7 +98,7 @@
         </div>
     </form>
 </template>
-<template id="trainingreport_form_template">
+<template id="form_template_trainingreport">
     <form method="post">
         @csrf
         <div id="mealreport-wrapper">
