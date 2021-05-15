@@ -13,7 +13,7 @@
                         <label>身長</label>
                     </div>
                     <div>
-                        <input class="report_value" name="height" type="number" id="height"
+                        <input class="report_value" name="height" type="" id="height"
                             value={{ @$physicalinformation->height }}>
                         <label>cm</label>
                     </div>
@@ -21,7 +21,7 @@
                         <label>体重</label>
                     </div>
                     <div>
-                        <input class="report_value" name="weight" type="number" id="weight"
+                        <input class="report_value" name="weight" type="" id="weight"
                             value={{ @$physicalinformation->weight }}>
                         <label>kg</label>
                     </div>
@@ -29,7 +29,7 @@
                         <label>体脂肪率</label>
                     </div>
                     <div>
-                        <input class="report_value" name="body_fat_percentage" type="number" id="body_fat_percentage"
+                        <input class="report_value" name="body_fat_percentage" type="" id="body_fat_percentage"
                             value={{ @$physicalinformation->body_fat_percentage }}>
                         <label>%</label>
                     </div>
@@ -37,7 +37,7 @@
                         <label>筋肉量</label>
                     </div>
                     <div>
-                        <input class="report_value" name="muscle_mass" type="number" id="muscle_mass"
+                        <input class="report_value" name="muscle_mass" type="" id="muscle_mass"
                             value={{ @$physicalinformation->muscle_mass }}>
                         <label>kg</label>
                     </div>
