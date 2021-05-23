@@ -5,6 +5,10 @@
             <td>{{ $user_information->user_id }}</td>
         </tr>
         <tr>
+            <th>会員番号</th>
+            <td>{{ $user_information->personal_number }}</td>
+        </tr>
+        <tr>
             <th>氏名</th>
             <td>{{ $user_information->name }}</td>
         </tr>

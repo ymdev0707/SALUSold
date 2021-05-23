@@ -17,6 +17,10 @@
     <form action="{{ url('/ms/userinformation/regist') }}" method="post">
         {{ csrf_field() }}
         <div class="row">
+            <div class="col-md-12 mb-3"> <label for="personal_number" class="form-label">会員番号</label> <input type="text"
+                    class="form-control profile-input" name="personal_number" placeholder="00001" value="" required="">
+                <div class="invalid-feedback"> Valid last personal_number is required. </div>
+            </div>
             <div class="col-md-6 mb-3"> <label for="last_name" class="form-label">姓</label> <input type="text"
                     class="form-control profile-input" name="last_name" placeholder="田中" value="" required="">
                 <div class="invalid-feedback"> Valid last name is required. </div>

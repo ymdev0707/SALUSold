@@ -20,6 +20,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
+        'personal_number',
         'last_name',
         'first_name',
         'last_name_kana',
@@ -67,9 +68,16 @@ class User extends Authenticatable
         }
         return $result;
     }
-
+    
+    /**
+     * get_users
+     *
+     * @param  mixed $param
+     * @return void
+     */
     public static function get_users($param){
         $user_id = Arr::get($param, 'user_id', NULL);
+        $personal_number = Arr::get($param, 'personal_number', NULL);
         $name = Arr::get($param, 'name', NULL);
         $sex = Arr::get($param, 'sex', NULL);
         $enrollment_store_id = Arr::get($param, 'enrollment_store_id', NULL);
@@ -80,6 +88,10 @@ class User extends Authenticatable
 
         if(!empty($user_id)){
             $tmp_where .= 'user_id = ' . $user_id;
+        }
+
+        if(!empty($personal_number)){
+            $tmp_where .= 'personal_number = ' . $personal_number;
         }
 
         if(!empty($name)){
@@ -123,6 +135,7 @@ class User extends Authenticatable
         $sql = "
         SELECT
             user_id
+            , personal_number
             , name
             , namekana
             , concat(name, ' / ', namekana) AS concatname
@@ -130,7 +143,6 @@ class User extends Authenticatable
             , sex_value
             , birth
             , staff
-            , store_name
             , store_name
             , ( 
                 SELECT
@@ -144,6 +156,7 @@ class User extends Authenticatable
             ( 
                 SELECT
                     us.id AS user_id
+                    , personal_number
                     , concat(last_name, ' ', first_name) AS name
                     , concat(last_name_kana, ' ', first_name_kana) AS namekana
                     , ( 
@@ -188,6 +201,7 @@ class User extends Authenticatable
      */
     public static function create_user($data){
         return User::create([
+            'personal_number' => $data['personal_number'],
             'last_name' => $data['last_name'],
             'first_name' => $data['first_name'],
             'last_name_kana' => $data['last_name_kana'],

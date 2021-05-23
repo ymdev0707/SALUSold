@@ -21,6 +21,10 @@
             <input type="text" class="form-control col-md-5" placeholder="" name="user_id">
         </div>
         <div class="form-group">
+            <label>会員番号</label>
+            <input type="text" class="form-control col-md-5" placeholder="" name="personal_number">
+        </div>
+        <div class="form-group">
             <label>姓名 / セイメイ</label>
             <input type="text" class="form-control col-md-5" placeholder="" name="name">
         </div>
@@ -61,6 +65,7 @@
         <table class="table">
             <tr>
                 <th>ユーザーID</th>
+                <th>会員番号</th>
                 <th>姓名/セイメイ</th>
                 <th>年齢</th>
                 <th>性別</th>
@@ -73,6 +78,7 @@
                 @foreach ($user_info as $user)
                     <tr>
                         <td>{{ $user->user_id }}</td>
+                        <td>{{ $user->personal_number }}</td>
                         <td>{{ $user->concatname }}</td>
                         <td>{{ $user->birth }}</td>
                         <td>{{ $user->sex }}</td>
