@@ -42,6 +42,14 @@
                         <label>kg</label>
                     </div>
                     <div>
+                        <label>セッション</label>
+                    </div>
+                    <div>
+                        あり&nbsp;<input class="report_value" name="is_session" type="radio" value = true @if( @$physicalinformation->is_session == true ) checked @endif>&nbsp;
+                        なし&nbsp;<input class="report_value" name="is_session" type="radio" value = false  @if( @$physicalinformation->is_session == false ) checked @endif>
+                    </div>
+                    <br>
+                    <div>
                         @if (@$physicalinformation)
                             <input type="submit" value="更新"
                                 formaction="/ms/userinformation/detail/physicalinformationreport/update?user_id={{ $user_id }}&target_date={{ $param_target_date }}"

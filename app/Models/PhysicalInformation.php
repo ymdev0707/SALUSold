@@ -23,6 +23,7 @@ class PhysicalInformation extends Model
         'body_fat_percentage',
         'muscle_mass',
         'target_date',
+        'is_session',
         'created_at',
         'updated_at',
         'is_deleted',
@@ -47,7 +48,6 @@ class PhysicalInformation extends Model
                     and target_date = '{$target_date}'
                     and is_deleted = 0 
         ";
-        
         $physicalinformation = DB::select($sql);
         return $physicalinformation;
     }
@@ -61,6 +61,7 @@ class PhysicalInformation extends Model
      */
     public static function regist_physicalinformationreport($user_id, $param){
         $physicalinformation = new PhysicalInformation();
+        $is_session = Arr::get($param, 'is_session');
         $result = $physicalinformation->create([
             'user_id' => $user_id,
             'height' => Arr::get($param, 'height'),
@@ -68,12 +69,14 @@ class PhysicalInformation extends Model
             'body_fat_percentage' => Arr::get($param, 'body_fat_percentage'),
             'muscle_mass' => Arr::get($param, 'muscle_mass'),
             'target_date' => Arr::get($param, 'target_date'),
+            'is_session' => $is_session === 'true' ? 1 : 0,
         ]);
         return $result;
     }
         
     public static function update_physicalinformationreport($user_id, $param){
         $physicalinformation = new PhysicalInformation();
+        $is_session = Arr::get($param, 'is_session');
         $result = $physicalinformation
             ->where([
                 'user_id' => $user_id,
@@ -85,6 +88,7 @@ class PhysicalInformation extends Model
                 'body_fat_percentage' => Arr::get($param, 'body_fat_percentage'),
                 'muscle_mass' => Arr::get($param, 'muscle_mass'),
                 'target_date' => Arr::get($param, 'target_date'),
+                'is_session' => $is_session === 'true' ? 1 : 0,
             ]);
         return $result;
     }
@@ -97,10 +101,14 @@ class PhysicalInformation extends Model
      * @param  mixed $end_date
      * @return void
      */
-    public static function get_physicalinformation_for_graph($user_id, $start_date, $end_date){
+    public static function get_physicalinformation_for_graph($user_id, $start_date, $end_date, $type){
         $calc_start_date = new DateTime($start_date);
         $calc_end_date = new DateTime($end_date);
         $calc_date = $calc_end_date->diff($calc_start_date);
+        $where = '';
+        if($type == 'session'){
+            $where .= ' AND is_session = 1';
+        }
 
         // 描画する日数
         $date_diff = $calc_date->format('%a') + 1;
@@ -115,6 +123,7 @@ class PhysicalInformation extends Model
                 , ifnull(body_fat_percentage, 0) as body_fat_percentage
                 , ifnull(muscle_mass, 0) as muscle_mass
                 , target_date
+                , is_session
                 , date_format(target_date_key,'%c/%e') as disp_target_date
                 , created_at
                 , updated_at
@@ -152,6 +161,7 @@ class PhysicalInformation extends Model
                         target_date BETWEEN '{$start_date}' AND '{$end_date}'  
                         AND user_id = {$user_id} 
                         AND is_deleted = 0
+                        {$where}
                 ) AS pi 
                     ON pi.target_date = calendar.target_date_key
             ORDER BY
