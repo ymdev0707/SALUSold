@@ -123,7 +123,6 @@
         .container {
             padding: 10px;
         }
-
     </style>
 @endsection
 @section('javascript-head')
@@ -151,6 +150,13 @@
                 <!-- 身体情報のグラフ -->
                 <p>身体情報グラフ</p>
                 @include('ms.userinformation.dashboard')
+            </div>
+        </div>
+        <div class="item">
+            <div class="graph">
+                <!-- 身体情報のグラフ -->
+                <p>身体情報グラフ(セッション日のみ)</p>
+                @include('ms.userinformation.dashboardsession')
             </div>
         </div>
 
@@ -192,7 +198,8 @@
                 </div>
             </div>
         </div>
-        <input type="hidden" name="form_target_date" id="form_target_date" class="form_target_date" value={{ @$target_date }}>
+        <input type="hidden" name="form_target_date" id="form_target_date" class="form_target_date"
+            value={{ @$target_date }}>
         <input type="hidden" id="report_type" value="{{ @$report_type }}">
         <input type="hidden" id="user_id" value="{{ @$user_id }}">
         <input type="hidden" id="start_date" value="{{ @$start_date }}">
@@ -202,6 +209,6 @@
 @section('javascript-footer')
     {{-- この場所に画面毎(フッタ位置)のjsを記述する --}}
     <script type="text/javascript">
-  
+
     </script>
 @endsection

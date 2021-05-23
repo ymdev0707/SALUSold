@@ -111,14 +111,29 @@ window.onload = function () {
 
 function draw_graph_date(start, end) {
     var user_id = $('#user_id').val();
-    var target_url = '/ms/userinformation/detail/get_graph_data?start_date=' + start + '&end_date=' + end + '&user_id=' + user_id;
+    var target_url = '/ms/userinformation/detail/get_graph_data?start_date=' + start + '&end_date=' + end + '&user_id=' + user_id + '&type=all';
+    var target_url_session = '/ms/userinformation/detail/get_graph_data?start_date=' + start + '&end_date=' + end + '&user_id=' + user_id + '&type=session';
     $.get({
         url: target_url,
         dataType: 'json', //必須。json形式で返すように設定
     }).done(function (data) {
         //連想配列のプロパティがそのままjsonオブジェクトのプロパティとなっている
         // グラフを描画する
-        draw_physical_information_graph(data);
+        draw_physical_information_graph(data,'physical_chart');
+
+    }).fail(function (XMLHttpRequest, textStatus, errorThrown) {
+        console.log(XMLHttpRequest);
+        console.log(textStatus);
+        console.log(errorThrown);
+    })
+
+    $.get({
+        url: target_url_session,
+        dataType: 'json', //必須。json形式で返すように設定
+    }).done(function (data) {
+        //連想配列のプロパティがそのままjsonオブジェクトのプロパティとなっている
+        // グラフを描画する
+        draw_physical_information_graph(data,'physical_chart_session');
 
     }).fail(function (XMLHttpRequest, textStatus, errorThrown) {
         console.log(XMLHttpRequest);
@@ -127,7 +142,7 @@ function draw_graph_date(start, end) {
     })
 }
 
-function draw_physical_information_graph(graph_data_physical) {
+function draw_physical_information_graph(graph_data_physical,target_type) {
     var arr_target_date = [];
     var arr_weight = [];
     var arr_body_fat_percentage = [];
@@ -139,7 +154,7 @@ function draw_physical_information_graph(graph_data_physical) {
         arr_muscle_mass.push(element.muscle_mass);
     });
 
-    var ctx = document.getElementById("physical_chart").getContext('2d');
+    var ctx = document.getElementById(target_type).getContext('2d');
     var chart = new Chart(ctx, {
         type: 'line',
         data: {
