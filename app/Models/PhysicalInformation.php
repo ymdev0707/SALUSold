@@ -94,21 +94,17 @@ class PhysicalInformation extends Model
     }
     
     /**
-     * get_physicalinformation_for_graph
+     * get_physicalinformation_for_graph_all
      *
      * @param  mixed $user_id
      * @param  mixed $start_date
      * @param  mixed $end_date
      * @return void
      */
-    public static function get_physicalinformation_for_graph($user_id, $start_date, $end_date, $type){
+    public static function get_physicalinformation_for_graph_all($user_id, $start_date, $end_date){
         $calc_start_date = new DateTime($start_date);
         $calc_end_date = new DateTime($end_date);
         $calc_date = $calc_end_date->diff($calc_start_date);
-        $where = '';
-        if($type == 'session'){
-            $where .= ' AND is_session = 1';
-        }
 
         // 描画する日数
         $date_diff = $calc_date->format('%a') + 1;
@@ -161,11 +157,35 @@ class PhysicalInformation extends Model
                         target_date BETWEEN '{$start_date}' AND '{$end_date}'  
                         AND user_id = {$user_id} 
                         AND is_deleted = 0
-                        {$where}
                 ) AS pi 
                     ON pi.target_date = calendar.target_date_key
             ORDER BY
             target_date_key ASC
+        ";
+        $physicalinformation = DB::select($sql);
+        return $physicalinformation;
+    }
+    
+    /**
+     * get_physicalinformation_for_graph_session
+     *
+     * @param  mixed $user_id
+     * @param  mixed $start_date
+     * @param  mixed $end_date
+     * @return void
+     */
+    public static function get_physicalinformation_for_graph_session($user_id, $start_date, $end_date){
+        $sql = "
+            SELECT
+                *,
+                date_format(target_date,'%c/%e') as disp_target_date 
+            FROM
+                physical_information 
+            WHERE
+                target_date BETWEEN '{$start_date}' AND '{$end_date}'  
+                AND user_id = {$user_id} 
+                AND is_session = 1
+                AND is_deleted = 0
         ";
         $physicalinformation = DB::select($sql);
         return $physicalinformation;

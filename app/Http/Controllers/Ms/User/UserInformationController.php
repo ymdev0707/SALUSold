@@ -137,7 +137,12 @@ class UserInformationController extends MsController
         $end_date = Arr::get($param, 'end_date', null);
         $user_id = Arr::get($param, 'user_id', null);
         $type = Arr::get($param, 'type', null);
-        $result = PhysicalInformation::get_physicalinformation_for_graph($user_id, $start_date, $end_date, $type);
+        if($type == 'all'){
+            $result = PhysicalInformation::get_physicalinformation_for_graph_all($user_id, $start_date, $end_date);
+        }else if($type == 'session'){
+            $result = PhysicalInformation::get_physicalinformation_for_graph_session($user_id, $start_date, $end_date);
+        }
+        
         $array_result = json_decode(json_encode($result), true);
         header("Content-Type: application/json; charset=UTF-8");
         $array_result = json_encode(
